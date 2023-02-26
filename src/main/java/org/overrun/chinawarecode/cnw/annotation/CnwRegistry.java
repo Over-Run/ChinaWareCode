@@ -7,7 +7,7 @@ import static java.lang.annotation.ElementType.TYPE;
 
 @Documented
 @Retention(RetentionPolicy.RUNTIME)
-@Target(value={ElementType.TYPE})
+@Target(value=ElementType.TYPE)
 public @interface CnwRegistry {
     String name() default "";
 }
