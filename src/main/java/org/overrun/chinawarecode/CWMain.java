@@ -24,11 +24,11 @@ public class CWMain {
             System.out.println(aClass);
         }
 
-        CnwParser cnw  = Parboiled.createParser(CnwParser.class);
+        CnwParser<Void> cnw  = Parboiled.createParser(CnwParser.class);
         while (true) {
             String in = new Scanner(System.in).nextLine();
             if (StringUtils.isEmpty(in)) break;
-            ParsingResult<?> result = new ReportingParseRunner(cnw.main()).run(in);
+            ParsingResult<?> result = new ReportingParseRunner(cnw.CNW()).run(in);
             if (!result.parseErrors.isEmpty()) {
                 System.out.println(ErrorUtils.printParseError(result.parseErrors.get(0)));
             } else {
