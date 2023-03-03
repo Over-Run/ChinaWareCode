@@ -16,8 +16,7 @@ import org.parboiled.matchers.OneOrMoreMatcher;
 import org.parboiled.parserunners.ReportingParseRunner;
 import org.parboiled.support.ParsingResult;
 
-import java.util.Scanner;
-import java.util.Set;
+import java.util.*;
 
 import static org.parboiled.support.ParseTreeUtils.printNodeTree;
 
@@ -27,8 +26,9 @@ import static org.parboiled.support.ParseTreeUtils.printNodeTree;
  */
 @BuildParseTree
 public class CnwParser<T> extends BaseParser<T> {
+    public static final Map<String, Rule> rules = new LinkedHashMap<>();
     public Rule CNW() {
-        return ReRule.String();
+        return rules.get("main");
     }
 
 
