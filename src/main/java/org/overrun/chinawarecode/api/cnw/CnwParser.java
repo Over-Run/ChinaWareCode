@@ -90,22 +90,22 @@ public class CnwParser extends Parser {
 	public ATN getATN() { return _ATN; }
 
 
-	public static final Map<String, Map<String, Object>> VarOrValNameObjectMap = new HashMap<>();
-	public static Object temp = null;
-	public static void a(String hasV, String hasV2, String name, Object o) {
-	    if(!VarOrValNameObjectMap.get(hasV).containsKey(name)) {
-	        VarOrValNameObjectMap.get(hasV2).put(name, temp);
+	    public static final Map<String, Map<String, Object>> VarOrValNameObjectMap = new HashMap<>();
+	    public static Object temp = null;
+	    public static void a(String hasV, String hasV2, String name, Object o) {
+	        if(!VarOrValNameObjectMap.get(hasV).containsKey(name)) {
+	            VarOrValNameObjectMap.get(hasV2).put(name, temp);
+	        }
 	    }
-	}
 
-	public static void b(String hasV2, String hasV, String name, Object o) {
-	    if(!VarOrValNameObjectMap.get(hasV2).containsKey(name)) {
-	        VarOrValNameObjectMap.get(hasV).put(name, temp);
-	    } else {
-	        VarOrValNameObjectMap.remove(hasV2);
-	        VarOrValNameObjectMap.get(hasV).put(name, temp);
+	    public static void b(String hasV2, String hasV, String name, Object o) {
+	        if(!VarOrValNameObjectMap.get(hasV2).containsKey(name)) {
+	            VarOrValNameObjectMap.get(hasV).put(name, temp);
+	        } else {
+	            VarOrValNameObjectMap.remove(hasV2);
+	            VarOrValNameObjectMap.get(hasV).put(name, temp);
+	        }
 	    }
-	}
 
 	public CnwParser(TokenStream input) {
 		super(input);
@@ -132,11 +132,11 @@ public class CnwParser extends Parser {
 		@Override public int getRuleIndex() { return RULE_cnw; }
 		@Override
 		public void enterRule(ParseTreeListener listener) {
-			if ( listener instanceof CnwListener) ((CnwListener)listener).enterCnw(this);
+			if ( listener instanceof CnwListener ) ((CnwListener)listener).enterCnw(this);
 		}
 		@Override
 		public void exitRule(ParseTreeListener listener) {
-			if ( listener instanceof CnwListener) ((CnwListener)listener).exitCnw(this);
+			if ( listener instanceof CnwListener ) ((CnwListener)listener).exitCnw(this);
 		}
 		@Override
 		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
@@ -212,11 +212,11 @@ public class CnwParser extends Parser {
 		@Override public int getRuleIndex() { return RULE_val; }
 		@Override
 		public void enterRule(ParseTreeListener listener) {
-			if ( listener instanceof CnwListener) ((CnwListener)listener).enterVal(this);
+			if ( listener instanceof CnwListener ) ((CnwListener)listener).enterVal(this);
 		}
 		@Override
 		public void exitRule(ParseTreeListener listener) {
-			if ( listener instanceof CnwListener) ((CnwListener)listener).exitVal(this);
+			if ( listener instanceof CnwListener ) ((CnwListener)listener).exitVal(this);
 		}
 		@Override
 		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
@@ -270,11 +270,11 @@ public class CnwParser extends Parser {
 		@Override public int getRuleIndex() { return RULE_var; }
 		@Override
 		public void enterRule(ParseTreeListener listener) {
-			if ( listener instanceof CnwListener) ((CnwListener)listener).enterVar(this);
+			if ( listener instanceof CnwListener ) ((CnwListener)listener).enterVar(this);
 		}
 		@Override
 		public void exitRule(ParseTreeListener listener) {
-			if ( listener instanceof CnwListener) ((CnwListener)listener).exitVar(this);
+			if ( listener instanceof CnwListener ) ((CnwListener)listener).exitVar(this);
 		}
 		@Override
 		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
@@ -378,11 +378,11 @@ public class CnwParser extends Parser {
 		@Override public int getRuleIndex() { return RULE_field; }
 		@Override
 		public void enterRule(ParseTreeListener listener) {
-			if ( listener instanceof CnwListener) ((CnwListener)listener).enterField(this);
+			if ( listener instanceof CnwListener ) ((CnwListener)listener).enterField(this);
 		}
 		@Override
 		public void exitRule(ParseTreeListener listener) {
-			if ( listener instanceof CnwListener) ((CnwListener)listener).exitField(this);
+			if ( listener instanceof CnwListener ) ((CnwListener)listener).exitField(this);
 		}
 		@Override
 		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
