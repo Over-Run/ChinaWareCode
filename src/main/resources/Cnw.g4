@@ -5,25 +5,52 @@ import java.util.*;
 }
 
 @parser::members {
-    public static final Map<String, Map<String, Object>> VarOrValNameObjectMap = new HashMap<>();
-    public static Object temp = null;
+    public static final Map<String, Object> gobals = new HashMap<>();//全局函数不可覆盖
+    public final Map<String, Map<String, Object>> VarOrValNameObjectMap = new HashMap<>();//存储var 和 val
+    public Object temp = null;
+
+    public static Map<String, Object> getMap(String key) {
+        return VarOrValNameObjectMap.get(key);
+    }
+    public void initVar() {
+        VarOrValNameObjectMap.put("var", new HashMap<>());
+    }
+    public void initVal() {
+        VarOrValNameObjectMap.put("val", new HashMap<>());
+    }
     public static void a(String hasV, String hasV2, String name, Object o) {
+        if(VarOrValNameObjectMap.containsKey(hasV)) {
+            initVar();
+        }
+        if(VarOrValNameObjectMap.containsKey(hasV2)) {
+            initVal();
+        }
         if(!VarOrValNameObjectMap.get(hasV).containsKey(name)) {
             VarOrValNameObjectMap.get(hasV2).put(name, temp);
         }
     }
 
     public static void b(String hasV2, String hasV, String name, Object o) {
-        if(!VarOrValNameObjectMap.get(hasV2).containsKey(name)) {
-            VarOrValNameObjectMap.get(hasV).put(name, temp);
+        if(VarOrValNameObjectMap.containsKey(hasV)) {
+            initVar();
+        }
+        if(VarOrValNameObjectMap.containsKey(hasV2)) {
+            initVal();
+        }
+        var mapV = getMap(hasV);
+        var mapV2 = getMap(hasV2);
+        if(mapV.containsKey(name)) {
+            mapV.put(name, mapV.get(name));
+        } else if(!mapV2.containsKey(name)) {
+            mapV.put(name, temp);
         } else {
-            VarOrValNameObjectMap.remove(hasV2);
-            VarOrValNameObjectMap.get(hasV).put(name, temp);
+            mapV2.remove(name);
+            mapV.put(name, temp);
         }
     }
 }
 
-cnw: (var | val)+;
+cnw: (var | val | gobal)+;
 
 WS:                 [ \t\r\n\u000C]+ -> channel(HIDDEN);
 COMMENT:            '/*' .*? '*/'    -> channel(HIDDEN);
@@ -31,6 +58,10 @@ LINE_COMMENT:       '//' ~[\r\n]*    -> channel(HIDDEN);
 
 val
     : 'val' name=NAME '<-' field {  b("var", "val", $name.text, temp); } ';'
+    ;
+
+gobal
+    : 'gobal' name = NAME field {   if(!gobals.containsKey($name.text)) { gobals.put($name.text, temp) } } ';'
     ;
 
 var

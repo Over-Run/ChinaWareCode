@@ -5,11 +5,8 @@ import java.util.*;
 import org.antlr.v4.runtime.atn.*;
 import org.antlr.v4.runtime.dfa.DFA;
 import org.antlr.v4.runtime.*;
-import org.antlr.v4.runtime.misc.*;
 import org.antlr.v4.runtime.tree.*;
 import java.util.List;
-import java.util.Iterator;
-import java.util.ArrayList;
 
 @SuppressWarnings({"all", "warnings", "unchecked", "unused", "cast", "CheckReturnValue"})
 public class CnwParser extends Parser {
@@ -98,8 +95,12 @@ public class CnwParser extends Parser {
 	        }
 	    }
 
+
+
 	    public static void b(String hasV2, String hasV, String name, Object o) {
-	        if(!VarOrValNameObjectMap.get(hasV2).containsKey(name)) {
+	        if(VarOrValNameObjectMap.get(hasV).containsKey(name)) {
+	            VarOrValNameObjectMap.get(hasV).put(name, VarOrValNameObjectMap.get(hasV).get(name));
+	        } else if(!VarOrValNameObjectMap.get(hasV2).containsKey(name)) {
 	            VarOrValNameObjectMap.get(hasV).put(name, temp);
 	        } else {
 	            VarOrValNameObjectMap.remove(hasV2);
@@ -132,11 +133,11 @@ public class CnwParser extends Parser {
 		@Override public int getRuleIndex() { return RULE_cnw; }
 		@Override
 		public void enterRule(ParseTreeListener listener) {
-			if ( listener instanceof CnwListener ) ((CnwListener)listener).enterCnw(this);
+			if ( listener instanceof CnwListener) ((CnwListener)listener).enterCnw(this);
 		}
 		@Override
 		public void exitRule(ParseTreeListener listener) {
-			if ( listener instanceof CnwListener ) ((CnwListener)listener).exitCnw(this);
+			if ( listener instanceof CnwListener) ((CnwListener)listener).exitCnw(this);
 		}
 		@Override
 		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
@@ -212,11 +213,11 @@ public class CnwParser extends Parser {
 		@Override public int getRuleIndex() { return RULE_val; }
 		@Override
 		public void enterRule(ParseTreeListener listener) {
-			if ( listener instanceof CnwListener ) ((CnwListener)listener).enterVal(this);
+			if ( listener instanceof CnwListener) ((CnwListener)listener).enterVal(this);
 		}
 		@Override
 		public void exitRule(ParseTreeListener listener) {
-			if ( listener instanceof CnwListener ) ((CnwListener)listener).exitVal(this);
+			if ( listener instanceof CnwListener) ((CnwListener)listener).exitVal(this);
 		}
 		@Override
 		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
@@ -239,7 +240,7 @@ public class CnwParser extends Parser {
 			match(LA);
 			setState(17);
 			field();
-			 b("var", "val", (((ValContext)_localctx).name!=null?((ValContext)_localctx).name.getText():null), temp); 
+			  b("var", "val", (((ValContext)_localctx).name!=null?((ValContext)_localctx).name.getText():null), temp); 
 			setState(19);
 			match(T__1);
 			}
@@ -270,11 +271,11 @@ public class CnwParser extends Parser {
 		@Override public int getRuleIndex() { return RULE_var; }
 		@Override
 		public void enterRule(ParseTreeListener listener) {
-			if ( listener instanceof CnwListener ) ((CnwListener)listener).enterVar(this);
+			if ( listener instanceof CnwListener) ((CnwListener)listener).enterVar(this);
 		}
 		@Override
 		public void exitRule(ParseTreeListener listener) {
-			if ( listener instanceof CnwListener ) ((CnwListener)listener).exitVar(this);
+			if ( listener instanceof CnwListener) ((CnwListener)listener).exitVar(this);
 		}
 		@Override
 		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
@@ -304,7 +305,7 @@ public class CnwParser extends Parser {
 					{
 					setState(22);
 					((VarContext)_localctx).name = match(NAME);
-					 a("val", "var", (((VarContext)_localctx).name!=null?((VarContext)_localctx).name.getText():null), null); 
+					  a("val", "var", (((VarContext)_localctx).name!=null?((VarContext)_localctx).name.getText():null), null); 
 					}
 					break;
 				case 2:
@@ -316,7 +317,7 @@ public class CnwParser extends Parser {
 					match(LA);
 					setState(26);
 					field();
-					 a("val", "var", (((VarContext)_localctx).name!=null?((VarContext)_localctx).name.getText():null), temp); 
+					   a("val", "var", (((VarContext)_localctx).name!=null?((VarContext)_localctx).name.getText():null), temp); 
 					}
 					}
 					break;
@@ -378,11 +379,11 @@ public class CnwParser extends Parser {
 		@Override public int getRuleIndex() { return RULE_field; }
 		@Override
 		public void enterRule(ParseTreeListener listener) {
-			if ( listener instanceof CnwListener ) ((CnwListener)listener).enterField(this);
+			if ( listener instanceof CnwListener) ((CnwListener)listener).enterField(this);
 		}
 		@Override
 		public void exitRule(ParseTreeListener listener) {
-			if ( listener instanceof CnwListener ) ((CnwListener)listener).exitField(this);
+			if ( listener instanceof CnwListener) ((CnwListener)listener).exitField(this);
 		}
 		@Override
 		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
@@ -403,7 +404,7 @@ public class CnwParser extends Parser {
 				{
 				setState(40);
 				((FieldContext)_localctx).str = match(STRING);
-				 temp = (((FieldContext)_localctx).str!=null?((FieldContext)_localctx).str.getText():null).substring((((FieldContext)_localctx).str!=null?((FieldContext)_localctx).str.getText():null).indexOf("\""), (((FieldContext)_localctx).str!=null?((FieldContext)_localctx).str.getText():null).lastIndexOf("\"")); 
+				  temp = (((FieldContext)_localctx).str!=null?((FieldContext)_localctx).str.getText():null).substring((((FieldContext)_localctx).str!=null?((FieldContext)_localctx).str.getText():null).indexOf("\""), (((FieldContext)_localctx).str!=null?((FieldContext)_localctx).str.getText():null).lastIndexOf("\"")); 
 				}
 				break;
 			case INT:
@@ -411,7 +412,7 @@ public class CnwParser extends Parser {
 				{
 				setState(42);
 				((FieldContext)_localctx).int_ = match(INT);
-				 temp = Integer.parseInt((((FieldContext)_localctx).int_!=null?((FieldContext)_localctx).int_.getText():null)); 
+				    temp = Integer.parseInt((((FieldContext)_localctx).int_!=null?((FieldContext)_localctx).int_.getText():null)); 
 				}
 				break;
 			case FLOAT:
@@ -419,7 +420,7 @@ public class CnwParser extends Parser {
 				{
 				setState(44);
 				((FieldContext)_localctx).float_ = match(FLOAT);
-				 temp = Float.parseFloat((((FieldContext)_localctx).float_!=null?((FieldContext)_localctx).float_.getText():null)); 
+				    temp = Float.parseFloat((((FieldContext)_localctx).float_!=null?((FieldContext)_localctx).float_.getText():null)); 
 				}
 				break;
 			case DOUBLE:
@@ -427,7 +428,7 @@ public class CnwParser extends Parser {
 				{
 				setState(46);
 				((FieldContext)_localctx).double_ = match(DOUBLE);
-				 temp = Double.parseDouble((((FieldContext)_localctx).double_!=null?((FieldContext)_localctx).double_.getText():null)); 
+				  temp = Double.parseDouble((((FieldContext)_localctx).double_!=null?((FieldContext)_localctx).double_.getText():null)); 
 				}
 				break;
 			case LONG:
@@ -435,7 +436,7 @@ public class CnwParser extends Parser {
 				{
 				setState(48);
 				((FieldContext)_localctx).long_ = match(LONG);
-				 temp = Long.parseLong((((FieldContext)_localctx).long_!=null?((FieldContext)_localctx).long_.getText():null)); 
+				  temp = Long.parseLong((((FieldContext)_localctx).long_!=null?((FieldContext)_localctx).long_.getText():null)); 
 				}
 				break;
 			default:
