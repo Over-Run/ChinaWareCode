@@ -50,48 +50,59 @@ import java.util.*;
     }
 }
 
-cnw: (var | val | gobal)+;
+cnw: (for | converter | if | var | val | gobal)+ | ;
 
 val
-    : 'val' name=NAME '<-' field {  b("var", "val", $name.text, temp); } ';'
+    : 'val' name=NAME '<-' field    {  b("var", "val", $name.text, temp); } ';'
     ;
 
 gobal
-    : 'gobal' name = NAME field {   if(!gobals.containsKey($name.text)) { gobals.put($name.text, temp) } } ';'
+    : 'gobal' name = NAME field     {   if(!gobals.containsKey($name.text)) { gobals.put($name.text, temp) } } ';'
     ;
 
+for
+    : forto | foreach
+    ;
+forto
+    : 'for' int_=INT RA jInt=INT '{' cnw '}'
+    ;
+foreach
+    : 'for' o=NAME LA (j=NAME | f=field) '{' cnw '}'
+    ;
+if
+    : 'if' NAME ('<=' | '=>' | '<>' | '==') NAME '{' cnw '}'
+    ;
+converter
+    : ('converter' | 'switch' | 'when') NAME '{' NAME '->' '{' cnw '}' '}'
+    ;
 var
-    : (('var' (name=NAME {  a("val", "var", $name.text, null); }
-            | (name=NAME '<-' field {   a("val", "var", $name.text, temp); })
-        )
-    )
-    | (field '->' 'var' NAME)) ';'
+    : (('var' (name=NAME {  a("val", "var", $name.text, null); } | (name=NAME '<-' field {   a("val", "var", $name.text, temp); }))) | (field '->' 'var' NAME)) ';'
     ;
 field
-    : str=STRING {  temp = $str.text.substring($str.text.indexOf("\""), $str.text.lastIndexOf("\"")); }
-    | int_=INT {    temp = Integer.parseInt($int_.text); }
-    | float_=FLOAT {    temp = Float.parseFloat($float_.text); }
-    | double_=DOUBLE {  temp = Double.parseDouble($double_.text); }
-    | long_=LONG {  temp = Long.parseLong($long_.text); }
+    : str=STRING        {  temp = $str.text.substring($str.text.indexOf("\""), $str.text.lastIndexOf("\"")); }
+    | int_=INT          {    temp = Integer.parseInt($int_.text); }
+    | float_=FLOAT      {    temp = Float.parseFloat($float_.text); }
+    | double_=DOUBLE    {  temp = Double.parseDouble($double_.text); }
+    | long_=LONG        {  temp = Long.parseLong($long_.text); }
     ;
 
-
+BOOLEAN: 'true' | 'false';
 WS:                 [ \t\r\n\u000C]+ -> channel(HIDDEN);
 COMMENT:            '/*' .*? '*/'    -> channel(HIDDEN);
 LINE_COMMENT:       '//' ~[\r\n]*    -> channel(HIDDEN);
 
-LONG: [0-9]+ 'L';
-DOUBLE: [0-9]+ '.' [0-9]+;
-FLOAT: [0-9]+ '.' [0-9]+ 'f';
-INT: [0-9]+;
-NAME: [0-9a-zA-Z]+;//field name
-STRING: '"'(~["\\\r\n] | EscapeSequence)*'"';//java字符串
+LONG:           [0-9]+ 'L';
+DOUBLE:         [0-9]+ '.' [0-9]+;
+FLOAT:          [0-9]+ '.' [0-9]+ 'f';
+INT:            [0-9]+;
+NAME:           [0-9a-zA-Z]+;//field name
+STRING:         '"'(~["\\\r\n] | EscapeSequence)*'"';//java字符串
 
 
 fragment EscapeSequence
-    : '\\' [btnfr"'\\]
-    | '\\' ([0-3]? [0-7])? [0-7]
-    | '\\' 'u'+ HexDigit HexDigit HexDigit HexDigit
+    : '\\'  [btnfr"'\\]
+    | '\\'  ([0-3]? [0-7])? [0-7]
+    | '\\'  'u'+ HexDigit HexDigit HexDigit HexDigit
     ;
 fragment HexDigit
     : [0-9a-fA-F]
