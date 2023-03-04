@@ -52,10 +52,6 @@ import java.util.*;
 
 cnw: (var | val | gobal)+;
 
-WS:                 [ \t\r\n\u000C]+ -> channel(HIDDEN);
-COMMENT:            '/*' .*? '*/'    -> channel(HIDDEN);
-LINE_COMMENT:       '//' ~[\r\n]*    -> channel(HIDDEN);
-
 val
     : 'val' name=NAME '<-' field {  b("var", "val", $name.text, temp); } ';'
     ;
@@ -78,12 +74,20 @@ field
     | double_=DOUBLE {  temp = Double.parseDouble($double_.text); }
     | long_=LONG {  temp = Long.parseLong($long_.text); }
     ;
+
+
+WS:                 [ \t\r\n\u000C]+ -> channel(HIDDEN);
+COMMENT:            '/*' .*? '*/'    -> channel(HIDDEN);
+LINE_COMMENT:       '//' ~[\r\n]*    -> channel(HIDDEN);
+
 LONG: [0-9]+ 'L';
 DOUBLE: [0-9]+ '.' [0-9]+;
 FLOAT: [0-9]+ '.' [0-9]+ 'f';
 INT: [0-9]+;
 NAME: [0-9a-zA-Z]+;//field name
 STRING: '"'(~["\\\r\n] | EscapeSequence)*'"';//java字符串
+
+
 fragment EscapeSequence
     : '\\' [btnfr"'\\]
     | '\\' ([0-3]? [0-7])? [0-7]
