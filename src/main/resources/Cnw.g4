@@ -8,11 +8,14 @@ expr:   pre=expr END
     |   if //如果句式
     |   for
     |   pre=expr (LA | RA) sub=expr
-    |   expr ('+' | '-' | '*' | '/') expr
+    |   expr (PLUS | REDUCE | RIDE | DIVIDE) expr
     |   ('.' | ) NAME // name
     |   ('.' | ) (NAME ',')+NAME //names
     |   ('.' | ) STRING //string
-    |   ('.' | ) (STRING ',')+STRING //strings
+    |   ('.' | ) (STRING ',')+STRING //file strings
+    |   ('.' | ) FSTRING //string
+    |   ('.' | ) (FSTRING ',')+FSTRING //file strings
+
     |   ('.' | ) INT
     |   ('.' | ) (INT ',')+INT
     |   ('.' | ) FLOAT
@@ -50,6 +53,7 @@ FLOAT:          [0-9]+ '.' [0-9]+ 'f';
 INT:            [0-9]+;
 NAME:           [0-9a-zA-Z]+;//field name
 STRING:         '"'(~["\\\r\n] | EscapeSequence)*'"';//java字符串
+FSTRING:        '@"'(~["\\\r\n]| EscapeSequence)*'"';
 
 
 fragment EscapeSequence
@@ -63,3 +67,7 @@ fragment HexDigit
 LA: '<-';//Left assignment
 RA: '->';//Right assignment
 END: ';';
+PLUS: '+';
+REDUCE: '-';
+RIDE: '*';
+DIVIDE: '/';
