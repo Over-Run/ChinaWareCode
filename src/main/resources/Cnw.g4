@@ -55,16 +55,17 @@ all:
     ;
 
 expr:
-    pre=expr END
-    | pre=expr (LA | RA) sub=expr END
-    | 'if' expr '{' all '}' //如果句式
-    | (NAME | (NAME ',')+NAME)
-    | (STRING | INT | FLOAT | DOUBLE | LONG | BOOL_LITERAL)
-    | expr ('+' | '-' | '*' | '/') expr
-    | 'val' (NAME | (NAME ',')+NAME)
-    | 'var' (NAME | (NAME ',')+NAME)
-    | 'gobal' (NAME | (NAME ',')+NAME)
-    | expr ('<=' | '=>' | '<>' | '==' | '&&' | '||' | '<' | '>') expr //判断
+        pre=expr END
+    |   'if' expr '{' all '}' //如果句式
+    |   'for' expr '{' all '}'
+    |   pre=expr (LA | RA) sub=expr
+    |   (',' | ) (NAME | (NAME ',')+NAME)
+    |   (',' | ) ((STRING | INT | FLOAT | DOUBLE | LONG | BOOL_LITERAL) | ((STRING | INT | FLOAT | DOUBLE | LONG | BOOL_LITERAL) ',')+ (STRING | INT | FLOAT | DOUBLE | LONG | BOOL_LITERAL))
+    |   expr ('+' | '-' | '*' | '/') expr
+    |   'val' (NAME | (NAME ',')+NAME)
+    |   'var' (NAME | (NAME ',')+NAME)
+    |   'gobal' (NAME | (NAME ',')+NAME)
+    |   expr ('<=' | '=>' | '<>' | '==' | '&&' | '||' | '<' | '>') expr //判断
     ;
 
 BOOLEAN: BOOL_LITERAL;

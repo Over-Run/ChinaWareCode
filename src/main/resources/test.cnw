@@ -14,3 +14,9 @@ if f {
     var g <- a;
     var h <- a;
 }
+
+val k <- "a", "b", "c", "d";
+
+for i <- k {
+    var h <- ,i;//附加,表示叠加数组
+}//这个for语句等效于var h <- k;
