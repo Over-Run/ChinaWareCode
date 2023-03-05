@@ -8,6 +8,7 @@ expr:   pre=expr END
     |   if //如果句式
     |   for
     |   switch
+    |   expr ':::' expr '{' expr '}'
     |   pre=expr    (LA | RA)                                               sub=expr
     |   pre=expr    (PLUS | REDUCE | RIDE | DIVIDE)                         sub=expr
     |   pre=expr    COMPARER                                                sub=expr //判断
@@ -59,7 +60,7 @@ LONG:           [0-9]+ 'L';
 DOUBLE:         [0-9]+ '.' [0-9]+;
 FLOAT:          [0-9]+ '.' [0-9]+ 'f';
 INT:            [0-9]+;
-NAME:           [0-9a-zA-Z]+;//field name
+NAME:           ([0-9a-zA-Z] | '_')+;//field name
 STRING:         '"'(~["\\\r\n] | EscapeSequence)*'"';//java字符串
 FSTRING:        '@"'(~["\\\r\n]| EscapeSequence)*'"';
 
