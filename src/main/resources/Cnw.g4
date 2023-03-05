@@ -4,38 +4,67 @@ all:
     expr+
     ;
 
-expr:   pre=expr LAMBDA code=expr
-    |   pre=expr LAMBDA sub=expr LAMBDA code=expr
-    |   'if' pre=expr code=expr //如果句式
-    |   'for' pre=expr code=expr
-    |   ('switch' | 'when' | 'converter') pre=expr '{' (sub=expr ':' (code=expr | ('{' code=expr '}')))+ '}'
-    |   pre=expr END
-    |   pre=expr    (LA | RA)                                               sub=expr
-    |   pre=expr    (PLUS | REDUCE | RIDE | DIVIDE)                         sub=expr
-    |   pre=expr    COMPARER                                                sub=expr //判断
-    |   pre=expr    MOVE                                                    sub=expr //判断
-    |   '(' (expr | all) ')'
-    |   '[' (expr | all) ']'
-    |   '{' (expr | all) '}'
-    |   ('.' | )    NAME // name
-    |   ('.' | )    (NAME ',')+NAME //names
-    |   ('.' | )    STRING //string
-    |   ('.' | )    (STRING ',')+STRING //file strings
-    |   ('.' | )    FSTRING //string
-    |   ('.' | )    (FSTRING ',')+FSTRING //file strings
-    |   ('.' | )    INT
-    |   ('.' | )    (INT ',')+INT
-    |   ('.' | )    FLOAT
-    |   ('.' | )    (FLOAT ',')+FLOAT
-    |   ('.' | )    DOUBLE
-    |   ('.' | )    (DOUBLE ',')+DOUBLE
-    |   ('.' | )    LONG
-    |   ('.' | )    (LONG ',')+LONG
-    |   ('.' | )    BOOL_LITERAL
-    |   ('.' | )    (BOOL_LITERAL ',')+BOOL_LITERAL
-    |   'val'       (NAME | (NAME ',')+NAME)
-    |   'var'       (NAME | (NAME ',')+NAME)
-    |   'global'    (NAME | (NAME ',')+NAME)
+expr: lambda | field | laOrRa | operations;
+lambda:     (pre=expr_        LAMBDA code=expr_)
+      |     (pre=expr_        LAMBDA sub=expr_ LAMBDA code=expr_)
+      ;
+field:      pre=expr_        end=END
+    ;
+laOrRa:     pre_l=expr_      (LA | RA)                                               sub_l=expr_
+      ;
+operations: pre=expr_        (PLUS | REDUCE | RIDE | DIVIDE)                         sub=expr_
+          ;
+expr_:      pre=expr_        COMPARER                                                sub=expr_ //判断
+    |       pre=expr_        MOVE                                                    sub=expr_
+    |       if='if' pre=expr_ code=expr_ //如果句式
+    |       for='for' pre_for=expr_ code_for=expr_
+    |       switch=('switch' | 'when' | 'converter') pre=expr_ '{' (sub=expr_ ':' (code=expr_ | ('{' code=expr_ '}')))+ '}'
+    |       prentheses
+    |       brackets
+    |       brace
+    |       name
+    |       string
+    |       fileString
+    |       int
+    |       float
+    |       double
+    |       long
+    |       bool
+    |       val='val'       (NAME | (NAME ',')+NAME)
+    |       var='var'       (NAME | (NAME ',')+NAME)
+    |       global='global'    (NAME | (NAME ',')+NAME)
+    ;
+move:
+    ;
+prentheses: '(' (expr_ | all) ')'
+          ;
+brackets:   '[' (expr_ | all) ']'
+        ;
+brace:      '{' (expr_ | all) '}'
+     ;
+name:       ('.' | )    NAME
+    |       ('.' | )    (NAME ',')+NAME
+    ;
+string:     ('.' | )    STRING
+      |     ('.' | )    (STRING ',')+STRING
+      ;
+fileString: ('.' | )    FSTRING //string
+          | ('.' | )    (FSTRING ',')+FSTRING //file strings
+          ;
+int:        ('.' | )    INT
+   |        ('.' | )    (INT ',')+INT
+   ;
+float:      ('.' | )    FLOAT
+     |      ('.' | )    (FLOAT ',')+FLOAT
+     ;
+double:     ('.' | )    DOUBLE
+      |     ('.' | )    (DOUBLE ',')+DOUBLE
+      ;
+long:       ('.' | )    LONG
+    |       ('.' | )    (LONG ',')+LONG
+    ;
+bool:       ('.' | )    BOOL_LITERAL
+    |       ('.' | )    (BOOL_LITERAL ',')+BOOL_LITERAL
     ;
 
 BOOL_LITERAL:       'true'

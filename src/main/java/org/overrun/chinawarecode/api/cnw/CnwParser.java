@@ -163,8 +163,19 @@ public class CnwParser extends Parser {
 	@SuppressWarnings("CheckReturnValue")
 	public static class ExprContext extends ParserRuleContext {
 		public ExprContext pre;
+		public ExprContext pre_l;
+		public Token if_;
 		public ExprContext code;
+		public Token for_;
+		public ExprContext pre_for;
+		public ExprContext code_for;
+		public Token switch_;
 		public ExprContext sub;
+		public Token val;
+		public Token var;
+		public Token global;
+		public ExprContext sub_l;
+		public Token end;
 		public List<ExprContext> expr() {
 			return getRuleContexts(ExprContext.class);
 		}
@@ -260,7 +271,7 @@ public class CnwParser extends Parser {
 			case 1:
 				{
 				setState(10);
-				match(T__0);
+				((ExprContext)_localctx).if_ = match(T__0);
 				setState(11);
 				((ExprContext)_localctx).pre = expr(0);
 				setState(12);
@@ -270,19 +281,20 @@ public class CnwParser extends Parser {
 			case 2:
 				{
 				setState(14);
-				match(T__1);
+				((ExprContext)_localctx).for_ = match(T__1);
 				setState(15);
-				((ExprContext)_localctx).pre = expr(0);
+				((ExprContext)_localctx).pre_for = expr(0);
 				setState(16);
-				((ExprContext)_localctx).code = expr(29);
+				((ExprContext)_localctx).code_for = expr(29);
 				}
 				break;
 			case 3:
 				{
 				setState(18);
+				((ExprContext)_localctx).switch_ = _input.LT(1);
 				_la = _input.LA(1);
 				if ( !(((_la) & ~0x3f) == 0 && ((1L << _la) & 56L) != 0) ) {
-				_errHandler.recoverInline(this);
+					((ExprContext)_localctx).switch_ = (Token)_errHandler.recoverInline(this);
 				}
 				else {
 					if ( _input.LA(1)==Token.EOF ) matchedEOF = true;
@@ -938,7 +950,7 @@ public class CnwParser extends Parser {
 			case 23:
 				{
 				setState(185);
-				match(T__14);
+				((ExprContext)_localctx).val = match(T__14);
 				setState(194);
 				_errHandler.sync(this);
 				switch ( getInterpreter().adaptivePredict(_input,31,_ctx) ) {
@@ -982,7 +994,7 @@ public class CnwParser extends Parser {
 			case 24:
 				{
 				setState(196);
-				match(T__15);
+				((ExprContext)_localctx).var = match(T__15);
 				setState(205);
 				_errHandler.sync(this);
 				switch ( getInterpreter().adaptivePredict(_input,33,_ctx) ) {
@@ -1026,7 +1038,7 @@ public class CnwParser extends Parser {
 			case 25:
 				{
 				setState(207);
-				match(T__16);
+				((ExprContext)_localctx).global = match(T__16);
 				setState(216);
 				_errHandler.sync(this);
 				switch ( getInterpreter().adaptivePredict(_input,35,_ctx) ) {
@@ -1113,7 +1125,7 @@ public class CnwParser extends Parser {
 					case 3:
 						{
 						_localctx = new ExprContext(_parentctx, _parentState);
-						_localctx.pre = _prevctx;
+						_localctx.pre_l = _prevctx;
 						pushNewRecursionContext(_localctx, _startState, RULE_expr);
 						setState(229);
 						if (!(precpred(_ctx, 26))) throw new FailedPredicateException(this, "precpred(_ctx, 26)");
@@ -1128,7 +1140,7 @@ public class CnwParser extends Parser {
 							consume();
 						}
 						setState(231);
-						((ExprContext)_localctx).sub = expr(27);
+						((ExprContext)_localctx).sub_l = expr(27);
 						}
 						break;
 					case 4:
@@ -1186,7 +1198,7 @@ public class CnwParser extends Parser {
 						setState(241);
 						if (!(precpred(_ctx, 27))) throw new FailedPredicateException(this, "precpred(_ctx, 27)");
 						setState(242);
-						match(END);
+						((ExprContext)_localctx).end = match(END);
 						}
 						break;
 					}
