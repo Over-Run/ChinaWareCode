@@ -10,7 +10,8 @@ expr:   pre=expr END
     |   switch
     |   pre=expr    (LA | RA)                                               sub=expr
     |   pre=expr    (PLUS | REDUCE | RIDE | DIVIDE)                         sub=expr
-    |   pre=expr    ('<=' | '=>' | '<>' | '==' | '&&' | '||' | '<' | '>')   sub=expr //判断
+    |   pre=expr    COMPARER                                                sub=expr //判断
+    |   pre=expr    MOVE                                                    sub=expr //判断
     |   '(' expr ')'
     |   '[' expr ']'
     |   '{' expr '}'
@@ -78,3 +79,5 @@ PLUS:       '+';
 REDUCE:     '-';
 RIDE:       '*';
 DIVIDE:     '/';
+COMPARER: '<=' | '=>' | '<>' | '==' | '&&' | '||' | '<' | '>';
+MOVE: '<<' | '>>' | '<<<' | '>>>';
