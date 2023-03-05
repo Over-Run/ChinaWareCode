@@ -31,7 +31,7 @@ expr:   pre=expr END
     |   ('.' | )    (BOOL_LITERAL ',')+BOOL_LITERAL
     |   'val'       (NAME | (NAME ',')+NAME)
     |   'var'       (NAME | (NAME ',')+NAME)
-    |   'gobal'     (NAME | (NAME ',')+NAME)
+    |   'global'     (NAME | (NAME ',')+NAME)
     ;
 
 if:
