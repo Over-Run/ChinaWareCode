@@ -21,22 +21,4 @@ public interface CnwVisitor<T> extends ParseTreeVisitor<T> {
 	 * @return the visitor result
 	 */
 	T visitExpr(CnwParser.ExprContext ctx);
-	/**
-	 * Visit a parse tree produced by {@link CnwParser#if}.
-	 * @param ctx the parse tree
-	 * @return the visitor result
-	 */
-	T visitIf(CnwParser.IfContext ctx);
-	/**
-	 * Visit a parse tree produced by {@link CnwParser#for}.
-	 * @param ctx the parse tree
-	 * @return the visitor result
-	 */
-	T visitFor(CnwParser.ForContext ctx);
-	/**
-	 * Visit a parse tree produced by {@link CnwParser#switch}.
-	 * @param ctx the parse tree
-	 * @return the visitor result
-	 */
-	T visitSwitch(CnwParser.SwitchContext ctx);
 }

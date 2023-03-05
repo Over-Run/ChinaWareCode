@@ -26,34 +26,4 @@ public interface CnwListener extends ParseTreeListener {
 	 * @param ctx the parse tree
 	 */
 	void exitExpr(CnwParser.ExprContext ctx);
-	/**
-	 * Enter a parse tree produced by {@link CnwParser#if}.
-	 * @param ctx the parse tree
-	 */
-	void enterIf(CnwParser.IfContext ctx);
-	/**
-	 * Exit a parse tree produced by {@link CnwParser#if}.
-	 * @param ctx the parse tree
-	 */
-	void exitIf(CnwParser.IfContext ctx);
-	/**
-	 * Enter a parse tree produced by {@link CnwParser#for}.
-	 * @param ctx the parse tree
-	 */
-	void enterFor(CnwParser.ForContext ctx);
-	/**
-	 * Exit a parse tree produced by {@link CnwParser#for}.
-	 * @param ctx the parse tree
-	 */
-	void exitFor(CnwParser.ForContext ctx);
-	/**
-	 * Enter a parse tree produced by {@link CnwParser#switch}.
-	 * @param ctx the parse tree
-	 */
-	void enterSwitch(CnwParser.SwitchContext ctx);
-	/**
-	 * Exit a parse tree produced by {@link CnwParser#switch}.
-	 * @param ctx the parse tree
-	 */
-	void exitSwitch(CnwParser.SwitchContext ctx);
 }
