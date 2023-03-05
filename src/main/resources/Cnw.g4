@@ -7,8 +7,9 @@ all:
 expr:   pre=expr END
     |   if //如果句式
     |   for
-    |   pre=expr (LA | RA) sub=expr
-    |   pre=expr (PLUS | REDUCE | RIDE | DIVIDE) sub=expr
+    |   pre=expr    (LA | RA)                                               sub=expr
+    |   pre=expr    (PLUS | REDUCE | RIDE | DIVIDE)                         sub=expr
+    |   pre=expr    ('<=' | '=>' | '<>' | '==' | '&&' | '||' | '<' | '>')   sub=expr //判断
     |   '(' expr ')'
     |   '[' expr ']'
     |   '{' expr '}'
@@ -31,7 +32,6 @@ expr:   pre=expr END
     |   'val'       (NAME | (NAME ',')+NAME)
     |   'var'       (NAME | (NAME ',')+NAME)
     |   'gobal'     (NAME | (NAME ',')+NAME)
-    |   expr ('<=' | '=>' | '<>' | '==' | '&&' | '||' | '<' | '>') expr //判断
     ;
 
 if:
@@ -58,18 +58,18 @@ STRING:         '"'(~["\\\r\n] | EscapeSequence)*'"';//java字符串
 FSTRING:        '@"'(~["\\\r\n]| EscapeSequence)*'"';
 
 
-fragment EscapeSequence
+fragment    EscapeSequence
     : '\\'  [btnfr"'\\]
     | '\\'  ([0-3]? [0-7])? [0-7]
     | '\\'  'u'+ HexDigit HexDigit HexDigit HexDigit
     ;
-fragment HexDigit
-    : [0-9a-fA-F]
+fragment    HexDigit
+    :       [0-9a-fA-F]
     ;
-LA: '<-';//Left assignment
-RA: '->';//Right assignment
-END: ';';
-PLUS: '+';
-REDUCE: '-';
-RIDE: '*';
-DIVIDE: '/';
+LA:         '<-';//Left assignment
+RA:         '->';//Right assignment
+END:        ';';
+PLUS:       '+';
+REDUCE:     '-';
+RIDE:       '*';
+DIVIDE:     '/';
