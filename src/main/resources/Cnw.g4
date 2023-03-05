@@ -4,8 +4,7 @@ all:
     expr+
     ;
 
-expr:
-        pre=expr END
+expr:   pre=expr END
     |   'if' expr '{' all '}' //如果句式
     |   'for' expr '{' all '}'
     |   pre=expr (LA | RA) sub=expr
@@ -18,7 +17,6 @@ expr:
     |   expr ('<=' | '=>' | '<>' | '==' | '&&' | '||' | '<' | '>') expr //判断
     ;
 
-BOOLEAN: BOOL_LITERAL;
 BOOL_LITERAL:       'true'
             |       'false'
             ;
