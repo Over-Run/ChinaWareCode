@@ -29,3 +29,9 @@ val k <- "a", "b", "c", "d";
 for i <- k {
     var h <- .i;//附加.表示叠加数组
 }//这个for语句等效于var h <- k;
+
+var t1 <- 0;
+var t2 <- 10;
+for t1 -> t2 {
+    var j <- .it;
+}//从1到10的数组
