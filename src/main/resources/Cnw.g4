@@ -8,27 +8,29 @@ expr:   pre=expr END
     |   if //如果句式
     |   for
     |   pre=expr (LA | RA) sub=expr
-    |   expr (PLUS | REDUCE | RIDE | DIVIDE) expr
-    |   ('.' | ) NAME // name
-    |   ('.' | ) (NAME ',')+NAME //names
-    |   ('.' | ) STRING //string
-    |   ('.' | ) (STRING ',')+STRING //file strings
-    |   ('.' | ) FSTRING //string
-    |   ('.' | ) (FSTRING ',')+FSTRING //file strings
-
-    |   ('.' | ) INT
-    |   ('.' | ) (INT ',')+INT
-    |   ('.' | ) FLOAT
-    |   ('.' | ) (FLOAT ',')+FLOAT
-    |   ('.' | ) DOUBLE
-    |   ('.' | ) (DOUBLE ',')+DOUBLE
-    |   ('.' | ) LONG
-    |   ('.' | ) (LONG ',')+LONG
-    |   ('.' | ) BOOL_LITERAL
-    |   ('.' | ) (BOOL_LITERAL ',')+BOOL_LITERAL
-    |   'val' (NAME | (NAME ',')+NAME)
-    |   'var' (NAME | (NAME ',')+NAME)
-    |   'gobal' (NAME | (NAME ',')+NAME)
+    |   pre=expr (PLUS | REDUCE | RIDE | DIVIDE) sub=expr
+    |   '(' expr ')'
+    |   '[' expr ']'
+    |   '{' expr '}'
+    |   ('.' | )    NAME // name
+    |   ('.' | )    (NAME ',')+NAME //names
+    |   ('.' | )    STRING //string
+    |   ('.' | )    (STRING ',')+STRING //file strings
+    |   ('.' | )    FSTRING //string
+    |   ('.' | )    (FSTRING ',')+FSTRING //file strings
+    |   ('.' | )    INT
+    |   ('.' | )    (INT ',')+INT
+    |   ('.' | )    FLOAT
+    |   ('.' | )    (FLOAT ',')+FLOAT
+    |   ('.' | )    DOUBLE
+    |   ('.' | )    (DOUBLE ',')+DOUBLE
+    |   ('.' | )    LONG
+    |   ('.' | )    (LONG ',')+LONG
+    |   ('.' | )    BOOL_LITERAL
+    |   ('.' | )    (BOOL_LITERAL ',')+BOOL_LITERAL
+    |   'val'       (NAME | (NAME ',')+NAME)
+    |   'var'       (NAME | (NAME ',')+NAME)
+    |   'gobal'     (NAME | (NAME ',')+NAME)
     |   expr ('<=' | '=>' | '<>' | '==' | '&&' | '||' | '<' | '>') expr //判断
     ;
 
