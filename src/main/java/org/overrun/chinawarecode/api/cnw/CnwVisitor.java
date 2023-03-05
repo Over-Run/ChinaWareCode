@@ -1,7 +1,4 @@
 package org.overrun.chinawarecode.api.cnw;// Generated from java-escape by ANTLR 4.11.1
-
-import java.util.*;
-
 import org.antlr.v4.runtime.tree.ParseTreeVisitor;
 
 /**
@@ -13,27 +10,33 @@ import org.antlr.v4.runtime.tree.ParseTreeVisitor;
  */
 public interface CnwVisitor<T> extends ParseTreeVisitor<T> {
 	/**
-	 * Visit a parse tree produced by {@link CnwParser#cnw}.
+	 * Visit a parse tree produced by {@link CnwParser#all}.
 	 * @param ctx the parse tree
 	 * @return the visitor result
 	 */
-	T visitCnw(CnwParser.CnwContext ctx);
+	T visitAll(CnwParser.AllContext ctx);
 	/**
-	 * Visit a parse tree produced by {@link CnwParser#val}.
+	 * Visit a parse tree produced by {@link CnwParser#expr}.
 	 * @param ctx the parse tree
 	 * @return the visitor result
 	 */
-	T visitVal(CnwParser.ValContext ctx);
+	T visitExpr(CnwParser.ExprContext ctx);
 	/**
-	 * Visit a parse tree produced by {@link CnwParser#var}.
+	 * Visit a parse tree produced by {@link CnwParser#if}.
 	 * @param ctx the parse tree
 	 * @return the visitor result
 	 */
-	T visitVar(CnwParser.VarContext ctx);
+	T visitIf(CnwParser.IfContext ctx);
 	/**
-	 * Visit a parse tree produced by {@link CnwParser#field}.
+	 * Visit a parse tree produced by {@link CnwParser#for}.
 	 * @param ctx the parse tree
 	 * @return the visitor result
 	 */
-	T visitField(CnwParser.FieldContext ctx);
+	T visitFor(CnwParser.ForContext ctx);
+	/**
+	 * Visit a parse tree produced by {@link CnwParser#switch}.
+	 * @param ctx the parse tree
+	 * @return the visitor result
+	 */
+	T visitSwitch(CnwParser.SwitchContext ctx);
 }

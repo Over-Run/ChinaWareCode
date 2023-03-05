@@ -1,7 +1,4 @@
 package org.overrun.chinawarecode.api.cnw;// Generated from java-escape by ANTLR 4.11.1
-
-import java.util.*;
-
 import org.antlr.v4.runtime.tree.AbstractParseTreeVisitor;
 
 /**
@@ -20,26 +17,33 @@ public class CnwBaseVisitor<T> extends AbstractParseTreeVisitor<T> implements Cn
 	 * <p>The default implementation returns the result of calling
 	 * {@link #visitChildren} on {@code ctx}.</p>
 	 */
-	@Override public T visitCnw(CnwParser.CnwContext ctx) { return visitChildren(ctx); }
+	@Override public T visitAll(CnwParser.AllContext ctx) { return visitChildren(ctx); }
 	/**
 	 * {@inheritDoc}
 	 *
 	 * <p>The default implementation returns the result of calling
 	 * {@link #visitChildren} on {@code ctx}.</p>
 	 */
-	@Override public T visitVal(CnwParser.ValContext ctx) { return visitChildren(ctx); }
+	@Override public T visitExpr(CnwParser.ExprContext ctx) { return visitChildren(ctx); }
 	/**
 	 * {@inheritDoc}
 	 *
 	 * <p>The default implementation returns the result of calling
 	 * {@link #visitChildren} on {@code ctx}.</p>
 	 */
-	@Override public T visitVar(CnwParser.VarContext ctx) { return visitChildren(ctx); }
+	@Override public T visitIf(CnwParser.IfContext ctx) { return visitChildren(ctx); }
 	/**
 	 * {@inheritDoc}
 	 *
 	 * <p>The default implementation returns the result of calling
 	 * {@link #visitChildren} on {@code ctx}.</p>
 	 */
-	@Override public T visitField(CnwParser.FieldContext ctx) { return visitChildren(ctx); }
+	@Override public T visitFor(CnwParser.ForContext ctx) { return visitChildren(ctx); }
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation returns the result of calling
+	 * {@link #visitChildren} on {@code ctx}.</p>
+	 */
+	@Override public T visitSwitch(CnwParser.SwitchContext ctx) { return visitChildren(ctx); }
 }

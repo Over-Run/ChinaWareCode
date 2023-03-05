@@ -1,8 +1,5 @@
 package org.overrun.chinawarecode.api.cnw;// Generated from java-escape by ANTLR 4.11.1
 
-import java.util.*;
-
-
 import org.antlr.v4.runtime.ParserRuleContext;
 import org.antlr.v4.runtime.tree.ErrorNode;
 import org.antlr.v4.runtime.tree.TerminalNode;
@@ -19,49 +16,61 @@ public class CnwBaseListener implements CnwListener {
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
-	@Override public void enterCnw(CnwParser.CnwContext ctx) { }
+	@Override public void enterAll(CnwParser.AllContext ctx) { }
 	/**
 	 * {@inheritDoc}
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
-	@Override public void exitCnw(CnwParser.CnwContext ctx) { }
+	@Override public void exitAll(CnwParser.AllContext ctx) { }
 	/**
 	 * {@inheritDoc}
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
-	@Override public void enterVal(CnwParser.ValContext ctx) { }
+	@Override public void enterExpr(CnwParser.ExprContext ctx) { }
 	/**
 	 * {@inheritDoc}
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
-	@Override public void exitVal(CnwParser.ValContext ctx) { }
+	@Override public void exitExpr(CnwParser.ExprContext ctx) { }
 	/**
 	 * {@inheritDoc}
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
-	@Override public void enterVar(CnwParser.VarContext ctx) { }
+	@Override public void enterIf(CnwParser.IfContext ctx) { }
 	/**
 	 * {@inheritDoc}
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
-	@Override public void exitVar(CnwParser.VarContext ctx) { }
+	@Override public void exitIf(CnwParser.IfContext ctx) { }
 	/**
 	 * {@inheritDoc}
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
-	@Override public void enterField(CnwParser.FieldContext ctx) { }
+	@Override public void enterFor(CnwParser.ForContext ctx) { }
 	/**
 	 * {@inheritDoc}
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
-	@Override public void exitField(CnwParser.FieldContext ctx) { }
+	@Override public void exitFor(CnwParser.ForContext ctx) { }
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation does nothing.</p>
+	 */
+	@Override public void enterSwitch(CnwParser.SwitchContext ctx) { }
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation does nothing.</p>
+	 */
+	@Override public void exitSwitch(CnwParser.SwitchContext ctx) { }
 
 	/**
 	 * {@inheritDoc}
