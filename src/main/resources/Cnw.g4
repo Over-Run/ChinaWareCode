@@ -57,7 +57,7 @@ all:
 expr:
     pre=expr END
     | pre=expr (LA | RA) sub=expr END
-    | 'if' expr '{' expr '}' //如果句式
+    | 'if' expr '{' expr+ '}' //如果句式
     | (NAME | (NAME ',')+NAME)
     | (STRING | INT | FLOAT | DOUBLE | LONG | BOOL_LITERAL)
     | expr ('+' | '-' | '*' | '/') expr
