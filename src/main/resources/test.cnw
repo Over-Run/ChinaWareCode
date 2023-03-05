@@ -15,6 +15,15 @@ if f {
     var h <- a;
 }
 
+switch f {
+    true : {
+        var tmp <- 1;
+    }
+    false : {
+        var tmp <- 1;
+    }
+}
+
 val k <- "a", "b", "c", "d";
 
 for i <- k {

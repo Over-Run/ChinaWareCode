@@ -7,6 +7,7 @@ all:
 expr:   pre=expr END
     |   if //如果句式
     |   for
+    |   switch
     |   pre=expr    (LA | RA)                                               sub=expr
     |   pre=expr    (PLUS | REDUCE | RIDE | DIVIDE)                         sub=expr
     |   pre=expr    ('<=' | '=>' | '<>' | '==' | '&&' | '||' | '<' | '>')   sub=expr //判断
@@ -40,6 +41,10 @@ if:
 for:
    'for' expr '{' all '}'
    ;
+switch:
+      ('switch' | 'when' | 'converter')
+      expr '{' (expr ':' (expr | ('{' expr '}')))+ '}'
+      ;
 
 BOOL_LITERAL:       'true'
             |       'false'
