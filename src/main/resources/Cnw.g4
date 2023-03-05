@@ -4,18 +4,19 @@ all:
     expr+
     ;
 
-expr:   pre=expr END
-    |   if //如果句式
-    |   for
-    |   switch
-    |   expr ':::' expr '{' expr '}'
+expr:   pre=expr LAMBDA code=expr
+    |   pre=expr LAMBDA sub=expr LAMBDA code=expr
+    |   'if' pre=expr code=expr //如果句式
+    |   'for' pre=expr code=expr
+    |   ('switch' | 'when' | 'converter') pre=expr '{' (sub=expr ':' (code=expr | ('{' code=expr '}')))+ '}'
+    |   pre=expr END
     |   pre=expr    (LA | RA)                                               sub=expr
     |   pre=expr    (PLUS | REDUCE | RIDE | DIVIDE)                         sub=expr
     |   pre=expr    COMPARER                                                sub=expr //判断
     |   pre=expr    MOVE                                                    sub=expr //判断
-    |   '(' expr ')'
-    |   '[' expr ']'
-    |   '{' expr '}'
+    |   '(' (expr | all) ')'
+    |   '[' (expr | all) ']'
+    |   '{' (expr | all) '}'
     |   ('.' | )    NAME // name
     |   ('.' | )    (NAME ',')+NAME //names
     |   ('.' | )    STRING //string
@@ -34,19 +35,8 @@ expr:   pre=expr END
     |   ('.' | )    (BOOL_LITERAL ',')+BOOL_LITERAL
     |   'val'       (NAME | (NAME ',')+NAME)
     |   'var'       (NAME | (NAME ',')+NAME)
-    |   'global'     (NAME | (NAME ',')+NAME)
+    |   'global'    (NAME | (NAME ',')+NAME)
     ;
-
-if:
-  'if' expr '{' all '}'
-  ;
-for:
-   'for' expr '{' all '}'
-   ;
-switch:
-      ('switch' | 'when' | 'converter')
-      expr '{' (expr ':' (expr | ('{' expr '}')))+ '}'
-      ;
 
 BOOL_LITERAL:       'true'
             |       'false'
@@ -82,3 +72,4 @@ RIDE:       '*';
 DIVIDE:     '/';
 COMPARER: '<=' | '=>' | '<>' | '==' | '&&' | '||' | '<' | '>';
 MOVE: '<<' | '>>' | '<<<' | '>>>';
+LAMBDA: ':::';
