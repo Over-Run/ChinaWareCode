@@ -50,43 +50,28 @@ import java.util.*;
     }
 }
 
-cnw: (for | converter | if | var | val | gobal)+ | ;
-
-val
-    : 'val' name=NAME '<-' field    {  b("var", "val", $name.text, temp); } ';'
+all:
+    expr+
     ;
 
-gobal
-    : 'gobal' name = NAME field     {   if(!gobals.containsKey($name.text)) { gobals.put($name.text, temp) } } ';'
+expr:
+    pre=expr END
+    | pre=expr (LA | RA) sub=expr END
+    | 'if' expr '{' expr '}' //如果句式
+    | (NAME | (NAME ',')+NAME)
+    | (STRING | INT | FLOAT | DOUBLE | LONG | BOOL_LITERAL)
+    | expr ('+' | '-' | '*' | '/') expr
+    | 'val' (NAME | (NAME ',')+NAME)
+    | 'var' (NAME | (NAME ',')+NAME)
+    | 'gobal' (NAME | (NAME ',')+NAME)
+    | expr ('<=' | '=>' | '<>' | '==' | '&&' | '||' | '<' | '>') expr //判断
     ;
 
-for
-    : forto | foreach
-    ;
-forto
-    : 'for' int_=INT RA jInt=INT '{' cnw '}'
-    ;
-foreach
-    : 'for' o=NAME LA (j=NAME | f=field) '{' cnw '}'
-    ;
-if
-    : 'if' NAME ('<=' | '=>' | '<>' | '==') NAME '{' cnw '}'
-    ;
-converter
-    : ('converter' | 'switch' | 'when') NAME '{' NAME '->' '{' cnw '}' '}'
-    ;
-var
-    : (('var' (name=NAME {  a("val", "var", $name.text, null); } | (name=NAME '<-' field {   a("val", "var", $name.text, temp); }))) | (field '->' 'var' NAME)) ';'
-    ;
-field
-    : str=STRING        {  temp = $str.text.substring($str.text.indexOf("\""), $str.text.lastIndexOf("\"")); }
-    | int_=INT          {    temp = Integer.parseInt($int_.text); }
-    | float_=FLOAT      {    temp = Float.parseFloat($float_.text); }
-    | double_=DOUBLE    {  temp = Double.parseDouble($double_.text); }
-    | long_=LONG        {  temp = Long.parseLong($long_.text); }
-    ;
+BOOLEAN: BOOL_LITERAL;
+BOOL_LITERAL:       'true'
+            |       'false'
+            ;
 
-BOOLEAN: 'true' | 'false';
 WS:                 [ \t\r\n\u000C]+ -> channel(HIDDEN);
 COMMENT:            '/*' .*? '*/'    -> channel(HIDDEN);
 LINE_COMMENT:       '//' ~[\r\n]*    -> channel(HIDDEN);
@@ -109,3 +94,4 @@ fragment HexDigit
     ;
 LA: '<-';//Left assignment
 RA: '->';//Right assignment
+END: ';';
