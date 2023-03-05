@@ -5,17 +5,36 @@ all:
     ;
 
 expr:   pre=expr END
-    |   'if' expr '{' all '}' //如果句式
-    |   'for' expr '{' all '}'
+    |   if //如果句式
+    |   for
     |   pre=expr (LA | RA) sub=expr
-    |   (',' | ) (NAME | (NAME ',')+NAME)
-    |   (',' | ) ((STRING | INT | FLOAT | DOUBLE | LONG | BOOL_LITERAL) | ((STRING | INT | FLOAT | DOUBLE | LONG | BOOL_LITERAL) ',')+ (STRING | INT | FLOAT | DOUBLE | LONG | BOOL_LITERAL))
     |   expr ('+' | '-' | '*' | '/') expr
+    |   ('.' | ) NAME // name
+    |   ('.' | ) (NAME ',')+NAME //names
+    |   ('.' | ) STRING //string
+    |   ('.' | ) (STRING ',')+STRING //strings
+    |   ('.' | ) INT
+    |   ('.' | ) (INT ',')+INT
+    |   ('.' | ) FLOAT
+    |   ('.' | ) (FLOAT ',')+FLOAT
+    |   ('.' | ) DOUBLE
+    |   ('.' | ) (DOUBLE ',')+DOUBLE
+    |   ('.' | ) LONG
+    |   ('.' | ) (LONG ',')+LONG
+    |   ('.' | ) BOOL_LITERAL
+    |   ('.' | ) (BOOL_LITERAL ',')+BOOL_LITERAL
     |   'val' (NAME | (NAME ',')+NAME)
     |   'var' (NAME | (NAME ',')+NAME)
     |   'gobal' (NAME | (NAME ',')+NAME)
     |   expr ('<=' | '=>' | '<>' | '==' | '&&' | '||' | '<' | '>') expr //判断
     ;
+
+if:
+  'if' expr '{' all '}'
+  ;
+for:
+   'for' expr '{' all '}'
+   ;
 
 BOOL_LITERAL:       'true'
             |       'false'
