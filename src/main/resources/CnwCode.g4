@@ -1,5 +1,12 @@
 grammar CnwCode;
 
+@parser::header {
+import java.util.*;
+}
+@parser::members {
+    public static Object temp = null;
+}
+
 main:           (allCode)+
     ;
 allCode:        code
@@ -100,7 +107,7 @@ LAMBDA: ':::';
 names:          NAME
      |          (NAME ',')+NAME
      ;
-strings:        STRING
+strings:        STRING {}
        |        (STRING ',')+STRING
        ;
 fileStrings:    FSTRING
