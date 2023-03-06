@@ -1,7 +1,4 @@
 package org.overrun.chinawarecode.api.cnw.code;// Generated from java-escape by ANTLR 4.11.1
-
-import java.util.*;
-
 import org.antlr.v4.runtime.atn.*;
 import org.antlr.v4.runtime.dfa.DFA;
 import org.antlr.v4.runtime.*;
@@ -108,9 +105,6 @@ public class CnwCodeParser extends Parser {
 	@Override
 	public ATN getATN() { return _ATN; }
 
-
-	    public static Object temp = null;
-
 	public CnwCodeParser(TokenStream input) {
 		super(input);
 		_interp = new ParserATNSimulator(this,_ATN,_decisionToDFA,_sharedContextCache);
@@ -130,15 +124,15 @@ public class CnwCodeParser extends Parser {
 		@Override public int getRuleIndex() { return RULE_main; }
 		@Override
 		public void enterRule(ParseTreeListener listener) {
-			if ( listener instanceof CnwCodeListener ) ((CnwCodeListener)listener).enterMain(this);
+			if ( listener instanceof CnwCodeListener) ((CnwCodeListener)listener).enterMain(this);
 		}
 		@Override
 		public void exitRule(ParseTreeListener listener) {
-			if ( listener instanceof CnwCodeListener ) ((CnwCodeListener)listener).exitMain(this);
+			if ( listener instanceof CnwCodeListener) ((CnwCodeListener)listener).exitMain(this);
 		}
 		@Override
 		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
-			if ( visitor instanceof CnwCodeVisitor) return ((CnwCodeVisitor<? extends T>)visitor).visitMain(this);
+			if ( visitor instanceof CnwCodeVisitor ) return ((CnwCodeVisitor<? extends T>)visitor).visitMain(this);
 			else return visitor.visitChildren(this);
 		}
 	}
@@ -197,15 +191,15 @@ public class CnwCodeParser extends Parser {
 		@Override public int getRuleIndex() { return RULE_allCode; }
 		@Override
 		public void enterRule(ParseTreeListener listener) {
-			if ( listener instanceof CnwCodeListener ) ((CnwCodeListener)listener).enterAllCode(this);
+			if ( listener instanceof CnwCodeListener) ((CnwCodeListener)listener).enterAllCode(this);
 		}
 		@Override
 		public void exitRule(ParseTreeListener listener) {
-			if ( listener instanceof CnwCodeListener ) ((CnwCodeListener)listener).exitAllCode(this);
+			if ( listener instanceof CnwCodeListener) ((CnwCodeListener)listener).exitAllCode(this);
 		}
 		@Override
 		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
-			if ( visitor instanceof CnwCodeVisitor) return ((CnwCodeVisitor<? extends T>)visitor).visitAllCode(this);
+			if ( visitor instanceof CnwCodeVisitor ) return ((CnwCodeVisitor<? extends T>)visitor).visitAllCode(this);
 			else return visitor.visitChildren(this);
 		}
 	}
@@ -285,15 +279,15 @@ public class CnwCodeParser extends Parser {
 		@Override public int getRuleIndex() { return RULE_if; }
 		@Override
 		public void enterRule(ParseTreeListener listener) {
-			if ( listener instanceof CnwCodeListener ) ((CnwCodeListener)listener).enterIf(this);
+			if ( listener instanceof CnwCodeListener) ((CnwCodeListener)listener).enterIf(this);
 		}
 		@Override
 		public void exitRule(ParseTreeListener listener) {
-			if ( listener instanceof CnwCodeListener ) ((CnwCodeListener)listener).exitIf(this);
+			if ( listener instanceof CnwCodeListener) ((CnwCodeListener)listener).exitIf(this);
 		}
 		@Override
 		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
-			if ( visitor instanceof CnwCodeVisitor) return ((CnwCodeVisitor<? extends T>)visitor).visitIf(this);
+			if ( visitor instanceof CnwCodeVisitor ) return ((CnwCodeVisitor<? extends T>)visitor).visitIf(this);
 			else return visitor.visitChildren(this);
 		}
 	}
@@ -337,15 +331,15 @@ public class CnwCodeParser extends Parser {
 		@Override public int getRuleIndex() { return RULE_for; }
 		@Override
 		public void enterRule(ParseTreeListener listener) {
-			if ( listener instanceof CnwCodeListener ) ((CnwCodeListener)listener).enterFor(this);
+			if ( listener instanceof CnwCodeListener) ((CnwCodeListener)listener).enterFor(this);
 		}
 		@Override
 		public void exitRule(ParseTreeListener listener) {
-			if ( listener instanceof CnwCodeListener ) ((CnwCodeListener)listener).exitFor(this);
+			if ( listener instanceof CnwCodeListener) ((CnwCodeListener)listener).exitFor(this);
 		}
 		@Override
 		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
-			if ( visitor instanceof CnwCodeVisitor) return ((CnwCodeVisitor<? extends T>)visitor).visitFor(this);
+			if ( visitor instanceof CnwCodeVisitor ) return ((CnwCodeVisitor<? extends T>)visitor).visitFor(this);
 			else return visitor.visitChildren(this);
 		}
 	}
@@ -389,15 +383,15 @@ public class CnwCodeParser extends Parser {
 		@Override public int getRuleIndex() { return RULE_switch; }
 		@Override
 		public void enterRule(ParseTreeListener listener) {
-			if ( listener instanceof CnwCodeListener ) ((CnwCodeListener)listener).enterSwitch(this);
+			if ( listener instanceof CnwCodeListener) ((CnwCodeListener)listener).enterSwitch(this);
 		}
 		@Override
 		public void exitRule(ParseTreeListener listener) {
-			if ( listener instanceof CnwCodeListener ) ((CnwCodeListener)listener).exitSwitch(this);
+			if ( listener instanceof CnwCodeListener) ((CnwCodeListener)listener).exitSwitch(this);
 		}
 		@Override
 		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
-			if ( visitor instanceof CnwCodeVisitor) return ((CnwCodeVisitor<? extends T>)visitor).visitSwitch(this);
+			if ( visitor instanceof CnwCodeVisitor ) return ((CnwCodeVisitor<? extends T>)visitor).visitSwitch(this);
 			else return visitor.visitChildren(this);
 		}
 	}
@@ -450,15 +444,15 @@ public class CnwCodeParser extends Parser {
 		@Override public int getRuleIndex() { return RULE_switchBlock; }
 		@Override
 		public void enterRule(ParseTreeListener listener) {
-			if ( listener instanceof CnwCodeListener ) ((CnwCodeListener)listener).enterSwitchBlock(this);
+			if ( listener instanceof CnwCodeListener) ((CnwCodeListener)listener).enterSwitchBlock(this);
 		}
 		@Override
 		public void exitRule(ParseTreeListener listener) {
-			if ( listener instanceof CnwCodeListener ) ((CnwCodeListener)listener).exitSwitchBlock(this);
+			if ( listener instanceof CnwCodeListener) ((CnwCodeListener)listener).exitSwitchBlock(this);
 		}
 		@Override
 		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
-			if ( visitor instanceof CnwCodeVisitor) return ((CnwCodeVisitor<? extends T>)visitor).visitSwitchBlock(this);
+			if ( visitor instanceof CnwCodeVisitor ) return ((CnwCodeVisitor<? extends T>)visitor).visitSwitchBlock(this);
 			else return visitor.visitChildren(this);
 		}
 	}
@@ -540,15 +534,15 @@ public class CnwCodeParser extends Parser {
 		@Override public int getRuleIndex() { return RULE_switchOr; }
 		@Override
 		public void enterRule(ParseTreeListener listener) {
-			if ( listener instanceof CnwCodeListener ) ((CnwCodeListener)listener).enterSwitchOr(this);
+			if ( listener instanceof CnwCodeListener) ((CnwCodeListener)listener).enterSwitchOr(this);
 		}
 		@Override
 		public void exitRule(ParseTreeListener listener) {
-			if ( listener instanceof CnwCodeListener ) ((CnwCodeListener)listener).exitSwitchOr(this);
+			if ( listener instanceof CnwCodeListener) ((CnwCodeListener)listener).exitSwitchOr(this);
 		}
 		@Override
 		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
-			if ( visitor instanceof CnwCodeVisitor) return ((CnwCodeVisitor<? extends T>)visitor).visitSwitchOr(this);
+			if ( visitor instanceof CnwCodeVisitor ) return ((CnwCodeVisitor<? extends T>)visitor).visitSwitchOr(this);
 			else return visitor.visitChildren(this);
 		}
 	}
@@ -610,15 +604,15 @@ public class CnwCodeParser extends Parser {
 		@Override public int getRuleIndex() { return RULE_braceTo; }
 		@Override
 		public void enterRule(ParseTreeListener listener) {
-			if ( listener instanceof CnwCodeListener ) ((CnwCodeListener)listener).enterBraceTo(this);
+			if ( listener instanceof CnwCodeListener) ((CnwCodeListener)listener).enterBraceTo(this);
 		}
 		@Override
 		public void exitRule(ParseTreeListener listener) {
-			if ( listener instanceof CnwCodeListener ) ((CnwCodeListener)listener).exitBraceTo(this);
+			if ( listener instanceof CnwCodeListener) ((CnwCodeListener)listener).exitBraceTo(this);
 		}
 		@Override
 		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
-			if ( visitor instanceof CnwCodeVisitor) return ((CnwCodeVisitor<? extends T>)visitor).visitBraceTo(this);
+			if ( visitor instanceof CnwCodeVisitor ) return ((CnwCodeVisitor<? extends T>)visitor).visitBraceTo(this);
 			else return visitor.visitChildren(this);
 		}
 	}
@@ -694,15 +688,15 @@ public class CnwCodeParser extends Parser {
 		@Override public int getRuleIndex() { return RULE_dec; }
 		@Override
 		public void enterRule(ParseTreeListener listener) {
-			if ( listener instanceof CnwCodeListener ) ((CnwCodeListener)listener).enterDec(this);
+			if ( listener instanceof CnwCodeListener) ((CnwCodeListener)listener).enterDec(this);
 		}
 		@Override
 		public void exitRule(ParseTreeListener listener) {
-			if ( listener instanceof CnwCodeListener ) ((CnwCodeListener)listener).exitDec(this);
+			if ( listener instanceof CnwCodeListener) ((CnwCodeListener)listener).exitDec(this);
 		}
 		@Override
 		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
-			if ( visitor instanceof CnwCodeVisitor) return ((CnwCodeVisitor<? extends T>)visitor).visitDec(this);
+			if ( visitor instanceof CnwCodeVisitor ) return ((CnwCodeVisitor<? extends T>)visitor).visitDec(this);
 			else return visitor.visitChildren(this);
 		}
 	}
@@ -753,15 +747,15 @@ public class CnwCodeParser extends Parser {
 		@Override public int getRuleIndex() { return RULE_code; }
 		@Override
 		public void enterRule(ParseTreeListener listener) {
-			if ( listener instanceof CnwCodeListener ) ((CnwCodeListener)listener).enterCode(this);
+			if ( listener instanceof CnwCodeListener) ((CnwCodeListener)listener).enterCode(this);
 		}
 		@Override
 		public void exitRule(ParseTreeListener listener) {
-			if ( listener instanceof CnwCodeListener ) ((CnwCodeListener)listener).exitCode(this);
+			if ( listener instanceof CnwCodeListener) ((CnwCodeListener)listener).exitCode(this);
 		}
 		@Override
 		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
-			if ( visitor instanceof CnwCodeVisitor) return ((CnwCodeVisitor<? extends T>)visitor).visitCode(this);
+			if ( visitor instanceof CnwCodeVisitor ) return ((CnwCodeVisitor<? extends T>)visitor).visitCode(this);
 			else return visitor.visitChildren(this);
 		}
 	}
@@ -800,15 +794,15 @@ public class CnwCodeParser extends Parser {
 		@Override public int getRuleIndex() { return RULE_val; }
 		@Override
 		public void enterRule(ParseTreeListener listener) {
-			if ( listener instanceof CnwCodeListener ) ((CnwCodeListener)listener).enterVal(this);
+			if ( listener instanceof CnwCodeListener) ((CnwCodeListener)listener).enterVal(this);
 		}
 		@Override
 		public void exitRule(ParseTreeListener listener) {
-			if ( listener instanceof CnwCodeListener ) ((CnwCodeListener)listener).exitVal(this);
+			if ( listener instanceof CnwCodeListener) ((CnwCodeListener)listener).exitVal(this);
 		}
 		@Override
 		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
-			if ( visitor instanceof CnwCodeVisitor) return ((CnwCodeVisitor<? extends T>)visitor).visitVal(this);
+			if ( visitor instanceof CnwCodeVisitor ) return ((CnwCodeVisitor<? extends T>)visitor).visitVal(this);
 			else return visitor.visitChildren(this);
 		}
 	}
@@ -847,15 +841,15 @@ public class CnwCodeParser extends Parser {
 		@Override public int getRuleIndex() { return RULE_var; }
 		@Override
 		public void enterRule(ParseTreeListener listener) {
-			if ( listener instanceof CnwCodeListener ) ((CnwCodeListener)listener).enterVar(this);
+			if ( listener instanceof CnwCodeListener) ((CnwCodeListener)listener).enterVar(this);
 		}
 		@Override
 		public void exitRule(ParseTreeListener listener) {
-			if ( listener instanceof CnwCodeListener ) ((CnwCodeListener)listener).exitVar(this);
+			if ( listener instanceof CnwCodeListener) ((CnwCodeListener)listener).exitVar(this);
 		}
 		@Override
 		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
-			if ( visitor instanceof CnwCodeVisitor) return ((CnwCodeVisitor<? extends T>)visitor).visitVar(this);
+			if ( visitor instanceof CnwCodeVisitor ) return ((CnwCodeVisitor<? extends T>)visitor).visitVar(this);
 			else return visitor.visitChildren(this);
 		}
 	}
@@ -901,15 +895,15 @@ public class CnwCodeParser extends Parser {
 		@Override public int getRuleIndex() { return RULE_operation; }
 		@Override
 		public void enterRule(ParseTreeListener listener) {
-			if ( listener instanceof CnwCodeListener ) ((CnwCodeListener)listener).enterOperation(this);
+			if ( listener instanceof CnwCodeListener) ((CnwCodeListener)listener).enterOperation(this);
 		}
 		@Override
 		public void exitRule(ParseTreeListener listener) {
-			if ( listener instanceof CnwCodeListener ) ((CnwCodeListener)listener).exitOperation(this);
+			if ( listener instanceof CnwCodeListener) ((CnwCodeListener)listener).exitOperation(this);
 		}
 		@Override
 		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
-			if ( visitor instanceof CnwCodeVisitor) return ((CnwCodeVisitor<? extends T>)visitor).visitOperation(this);
+			if ( visitor instanceof CnwCodeVisitor ) return ((CnwCodeVisitor<? extends T>)visitor).visitOperation(this);
 			else return visitor.visitChildren(this);
 		}
 	}
@@ -959,15 +953,15 @@ public class CnwCodeParser extends Parser {
 		@Override public int getRuleIndex() { return RULE_prentheses; }
 		@Override
 		public void enterRule(ParseTreeListener listener) {
-			if ( listener instanceof CnwCodeListener ) ((CnwCodeListener)listener).enterPrentheses(this);
+			if ( listener instanceof CnwCodeListener) ((CnwCodeListener)listener).enterPrentheses(this);
 		}
 		@Override
 		public void exitRule(ParseTreeListener listener) {
-			if ( listener instanceof CnwCodeListener ) ((CnwCodeListener)listener).exitPrentheses(this);
+			if ( listener instanceof CnwCodeListener) ((CnwCodeListener)listener).exitPrentheses(this);
 		}
 		@Override
 		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
-			if ( visitor instanceof CnwCodeVisitor) return ((CnwCodeVisitor<? extends T>)visitor).visitPrentheses(this);
+			if ( visitor instanceof CnwCodeVisitor ) return ((CnwCodeVisitor<? extends T>)visitor).visitPrentheses(this);
 			else return visitor.visitChildren(this);
 		}
 	}
@@ -1008,15 +1002,15 @@ public class CnwCodeParser extends Parser {
 		@Override public int getRuleIndex() { return RULE_prenthesesOperation; }
 		@Override
 		public void enterRule(ParseTreeListener listener) {
-			if ( listener instanceof CnwCodeListener ) ((CnwCodeListener)listener).enterPrenthesesOperation(this);
+			if ( listener instanceof CnwCodeListener) ((CnwCodeListener)listener).enterPrenthesesOperation(this);
 		}
 		@Override
 		public void exitRule(ParseTreeListener listener) {
-			if ( listener instanceof CnwCodeListener ) ((CnwCodeListener)listener).exitPrenthesesOperation(this);
+			if ( listener instanceof CnwCodeListener) ((CnwCodeListener)listener).exitPrenthesesOperation(this);
 		}
 		@Override
 		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
-			if ( visitor instanceof CnwCodeVisitor) return ((CnwCodeVisitor<? extends T>)visitor).visitPrenthesesOperation(this);
+			if ( visitor instanceof CnwCodeVisitor ) return ((CnwCodeVisitor<? extends T>)visitor).visitPrenthesesOperation(this);
 			else return visitor.visitChildren(this);
 		}
 	}
@@ -1057,15 +1051,15 @@ public class CnwCodeParser extends Parser {
 		@Override public int getRuleIndex() { return RULE_brackets; }
 		@Override
 		public void enterRule(ParseTreeListener listener) {
-			if ( listener instanceof CnwCodeListener ) ((CnwCodeListener)listener).enterBrackets(this);
+			if ( listener instanceof CnwCodeListener) ((CnwCodeListener)listener).enterBrackets(this);
 		}
 		@Override
 		public void exitRule(ParseTreeListener listener) {
-			if ( listener instanceof CnwCodeListener ) ((CnwCodeListener)listener).exitBrackets(this);
+			if ( listener instanceof CnwCodeListener) ((CnwCodeListener)listener).exitBrackets(this);
 		}
 		@Override
 		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
-			if ( visitor instanceof CnwCodeVisitor) return ((CnwCodeVisitor<? extends T>)visitor).visitBrackets(this);
+			if ( visitor instanceof CnwCodeVisitor ) return ((CnwCodeVisitor<? extends T>)visitor).visitBrackets(this);
 			else return visitor.visitChildren(this);
 		}
 	}
@@ -1106,15 +1100,15 @@ public class CnwCodeParser extends Parser {
 		@Override public int getRuleIndex() { return RULE_brace; }
 		@Override
 		public void enterRule(ParseTreeListener listener) {
-			if ( listener instanceof CnwCodeListener ) ((CnwCodeListener)listener).enterBrace(this);
+			if ( listener instanceof CnwCodeListener) ((CnwCodeListener)listener).enterBrace(this);
 		}
 		@Override
 		public void exitRule(ParseTreeListener listener) {
-			if ( listener instanceof CnwCodeListener ) ((CnwCodeListener)listener).exitBrace(this);
+			if ( listener instanceof CnwCodeListener) ((CnwCodeListener)listener).exitBrace(this);
 		}
 		@Override
 		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
-			if ( visitor instanceof CnwCodeVisitor) return ((CnwCodeVisitor<? extends T>)visitor).visitBrace(this);
+			if ( visitor instanceof CnwCodeVisitor ) return ((CnwCodeVisitor<? extends T>)visitor).visitBrace(this);
 			else return visitor.visitChildren(this);
 		}
 	}
@@ -1155,15 +1149,15 @@ public class CnwCodeParser extends Parser {
 		@Override public int getRuleIndex() { return RULE_prenthesesBoolean; }
 		@Override
 		public void enterRule(ParseTreeListener listener) {
-			if ( listener instanceof CnwCodeListener ) ((CnwCodeListener)listener).enterPrenthesesBoolean(this);
+			if ( listener instanceof CnwCodeListener) ((CnwCodeListener)listener).enterPrenthesesBoolean(this);
 		}
 		@Override
 		public void exitRule(ParseTreeListener listener) {
-			if ( listener instanceof CnwCodeListener ) ((CnwCodeListener)listener).exitPrenthesesBoolean(this);
+			if ( listener instanceof CnwCodeListener) ((CnwCodeListener)listener).exitPrenthesesBoolean(this);
 		}
 		@Override
 		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
-			if ( visitor instanceof CnwCodeVisitor) return ((CnwCodeVisitor<? extends T>)visitor).visitPrenthesesBoolean(this);
+			if ( visitor instanceof CnwCodeVisitor ) return ((CnwCodeVisitor<? extends T>)visitor).visitPrenthesesBoolean(this);
 			else return visitor.visitChildren(this);
 		}
 	}
@@ -1210,15 +1204,15 @@ public class CnwCodeParser extends Parser {
 		@Override public int getRuleIndex() { return RULE_aBoolean; }
 		@Override
 		public void enterRule(ParseTreeListener listener) {
-			if ( listener instanceof CnwCodeListener ) ((CnwCodeListener)listener).enterABoolean(this);
+			if ( listener instanceof CnwCodeListener) ((CnwCodeListener)listener).enterABoolean(this);
 		}
 		@Override
 		public void exitRule(ParseTreeListener listener) {
-			if ( listener instanceof CnwCodeListener ) ((CnwCodeListener)listener).exitABoolean(this);
+			if ( listener instanceof CnwCodeListener) ((CnwCodeListener)listener).exitABoolean(this);
 		}
 		@Override
 		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
-			if ( visitor instanceof CnwCodeVisitor) return ((CnwCodeVisitor<? extends T>)visitor).visitABoolean(this);
+			if ( visitor instanceof CnwCodeVisitor ) return ((CnwCodeVisitor<? extends T>)visitor).visitABoolean(this);
 			else return visitor.visitChildren(this);
 		}
 	}
@@ -1295,15 +1289,15 @@ public class CnwCodeParser extends Parser {
 		@Override public int getRuleIndex() { return RULE_default; }
 		@Override
 		public void enterRule(ParseTreeListener listener) {
-			if ( listener instanceof CnwCodeListener ) ((CnwCodeListener)listener).enterDefault(this);
+			if ( listener instanceof CnwCodeListener) ((CnwCodeListener)listener).enterDefault(this);
 		}
 		@Override
 		public void exitRule(ParseTreeListener listener) {
-			if ( listener instanceof CnwCodeListener ) ((CnwCodeListener)listener).exitDefault(this);
+			if ( listener instanceof CnwCodeListener) ((CnwCodeListener)listener).exitDefault(this);
 		}
 		@Override
 		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
-			if ( visitor instanceof CnwCodeVisitor) return ((CnwCodeVisitor<? extends T>)visitor).visitDefault(this);
+			if ( visitor instanceof CnwCodeVisitor ) return ((CnwCodeVisitor<? extends T>)visitor).visitDefault(this);
 			else return visitor.visitChildren(this);
 		}
 	}
@@ -1399,15 +1393,15 @@ public class CnwCodeParser extends Parser {
 		@Override public int getRuleIndex() { return RULE_def; }
 		@Override
 		public void enterRule(ParseTreeListener listener) {
-			if ( listener instanceof CnwCodeListener ) ((CnwCodeListener)listener).enterDef(this);
+			if ( listener instanceof CnwCodeListener) ((CnwCodeListener)listener).enterDef(this);
 		}
 		@Override
 		public void exitRule(ParseTreeListener listener) {
-			if ( listener instanceof CnwCodeListener ) ((CnwCodeListener)listener).exitDef(this);
+			if ( listener instanceof CnwCodeListener) ((CnwCodeListener)listener).exitDef(this);
 		}
 		@Override
 		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
-			if ( visitor instanceof CnwCodeVisitor) return ((CnwCodeVisitor<? extends T>)visitor).visitDef(this);
+			if ( visitor instanceof CnwCodeVisitor ) return ((CnwCodeVisitor<? extends T>)visitor).visitDef(this);
 			else return visitor.visitChildren(this);
 		}
 	}
@@ -1514,15 +1508,15 @@ public class CnwCodeParser extends Parser {
 		@Override public int getRuleIndex() { return RULE_names; }
 		@Override
 		public void enterRule(ParseTreeListener listener) {
-			if ( listener instanceof CnwCodeListener ) ((CnwCodeListener)listener).enterNames(this);
+			if ( listener instanceof CnwCodeListener) ((CnwCodeListener)listener).enterNames(this);
 		}
 		@Override
 		public void exitRule(ParseTreeListener listener) {
-			if ( listener instanceof CnwCodeListener ) ((CnwCodeListener)listener).exitNames(this);
+			if ( listener instanceof CnwCodeListener) ((CnwCodeListener)listener).exitNames(this);
 		}
 		@Override
 		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
-			if ( visitor instanceof CnwCodeVisitor) return ((CnwCodeVisitor<? extends T>)visitor).visitNames(this);
+			if ( visitor instanceof CnwCodeVisitor ) return ((CnwCodeVisitor<? extends T>)visitor).visitNames(this);
 			else return visitor.visitChildren(this);
 		}
 	}
@@ -1596,15 +1590,15 @@ public class CnwCodeParser extends Parser {
 		@Override public int getRuleIndex() { return RULE_strings; }
 		@Override
 		public void enterRule(ParseTreeListener listener) {
-			if ( listener instanceof CnwCodeListener ) ((CnwCodeListener)listener).enterStrings(this);
+			if ( listener instanceof CnwCodeListener) ((CnwCodeListener)listener).enterStrings(this);
 		}
 		@Override
 		public void exitRule(ParseTreeListener listener) {
-			if ( listener instanceof CnwCodeListener ) ((CnwCodeListener)listener).exitStrings(this);
+			if ( listener instanceof CnwCodeListener) ((CnwCodeListener)listener).exitStrings(this);
 		}
 		@Override
 		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
-			if ( visitor instanceof CnwCodeVisitor) return ((CnwCodeVisitor<? extends T>)visitor).visitStrings(this);
+			if ( visitor instanceof CnwCodeVisitor ) return ((CnwCodeVisitor<? extends T>)visitor).visitStrings(this);
 			else return visitor.visitChildren(this);
 		}
 	}
@@ -1679,15 +1673,15 @@ public class CnwCodeParser extends Parser {
 		@Override public int getRuleIndex() { return RULE_fileStrings; }
 		@Override
 		public void enterRule(ParseTreeListener listener) {
-			if ( listener instanceof CnwCodeListener ) ((CnwCodeListener)listener).enterFileStrings(this);
+			if ( listener instanceof CnwCodeListener) ((CnwCodeListener)listener).enterFileStrings(this);
 		}
 		@Override
 		public void exitRule(ParseTreeListener listener) {
-			if ( listener instanceof CnwCodeListener ) ((CnwCodeListener)listener).exitFileStrings(this);
+			if ( listener instanceof CnwCodeListener) ((CnwCodeListener)listener).exitFileStrings(this);
 		}
 		@Override
 		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
-			if ( visitor instanceof CnwCodeVisitor) return ((CnwCodeVisitor<? extends T>)visitor).visitFileStrings(this);
+			if ( visitor instanceof CnwCodeVisitor ) return ((CnwCodeVisitor<? extends T>)visitor).visitFileStrings(this);
 			else return visitor.visitChildren(this);
 		}
 	}
@@ -1761,15 +1755,15 @@ public class CnwCodeParser extends Parser {
 		@Override public int getRuleIndex() { return RULE_longs; }
 		@Override
 		public void enterRule(ParseTreeListener listener) {
-			if ( listener instanceof CnwCodeListener ) ((CnwCodeListener)listener).enterLongs(this);
+			if ( listener instanceof CnwCodeListener) ((CnwCodeListener)listener).enterLongs(this);
 		}
 		@Override
 		public void exitRule(ParseTreeListener listener) {
-			if ( listener instanceof CnwCodeListener ) ((CnwCodeListener)listener).exitLongs(this);
+			if ( listener instanceof CnwCodeListener) ((CnwCodeListener)listener).exitLongs(this);
 		}
 		@Override
 		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
-			if ( visitor instanceof CnwCodeVisitor) return ((CnwCodeVisitor<? extends T>)visitor).visitLongs(this);
+			if ( visitor instanceof CnwCodeVisitor ) return ((CnwCodeVisitor<? extends T>)visitor).visitLongs(this);
 			else return visitor.visitChildren(this);
 		}
 	}
@@ -1843,15 +1837,15 @@ public class CnwCodeParser extends Parser {
 		@Override public int getRuleIndex() { return RULE_ints; }
 		@Override
 		public void enterRule(ParseTreeListener listener) {
-			if ( listener instanceof CnwCodeListener ) ((CnwCodeListener)listener).enterInts(this);
+			if ( listener instanceof CnwCodeListener) ((CnwCodeListener)listener).enterInts(this);
 		}
 		@Override
 		public void exitRule(ParseTreeListener listener) {
-			if ( listener instanceof CnwCodeListener ) ((CnwCodeListener)listener).exitInts(this);
+			if ( listener instanceof CnwCodeListener) ((CnwCodeListener)listener).exitInts(this);
 		}
 		@Override
 		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
-			if ( visitor instanceof CnwCodeVisitor) return ((CnwCodeVisitor<? extends T>)visitor).visitInts(this);
+			if ( visitor instanceof CnwCodeVisitor ) return ((CnwCodeVisitor<? extends T>)visitor).visitInts(this);
 			else return visitor.visitChildren(this);
 		}
 	}
@@ -1925,15 +1919,15 @@ public class CnwCodeParser extends Parser {
 		@Override public int getRuleIndex() { return RULE_floats; }
 		@Override
 		public void enterRule(ParseTreeListener listener) {
-			if ( listener instanceof CnwCodeListener ) ((CnwCodeListener)listener).enterFloats(this);
+			if ( listener instanceof CnwCodeListener) ((CnwCodeListener)listener).enterFloats(this);
 		}
 		@Override
 		public void exitRule(ParseTreeListener listener) {
-			if ( listener instanceof CnwCodeListener ) ((CnwCodeListener)listener).exitFloats(this);
+			if ( listener instanceof CnwCodeListener) ((CnwCodeListener)listener).exitFloats(this);
 		}
 		@Override
 		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
-			if ( visitor instanceof CnwCodeVisitor) return ((CnwCodeVisitor<? extends T>)visitor).visitFloats(this);
+			if ( visitor instanceof CnwCodeVisitor ) return ((CnwCodeVisitor<? extends T>)visitor).visitFloats(this);
 			else return visitor.visitChildren(this);
 		}
 	}
@@ -2007,15 +2001,15 @@ public class CnwCodeParser extends Parser {
 		@Override public int getRuleIndex() { return RULE_doubles; }
 		@Override
 		public void enterRule(ParseTreeListener listener) {
-			if ( listener instanceof CnwCodeListener ) ((CnwCodeListener)listener).enterDoubles(this);
+			if ( listener instanceof CnwCodeListener) ((CnwCodeListener)listener).enterDoubles(this);
 		}
 		@Override
 		public void exitRule(ParseTreeListener listener) {
-			if ( listener instanceof CnwCodeListener ) ((CnwCodeListener)listener).exitDoubles(this);
+			if ( listener instanceof CnwCodeListener) ((CnwCodeListener)listener).exitDoubles(this);
 		}
 		@Override
 		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
-			if ( visitor instanceof CnwCodeVisitor) return ((CnwCodeVisitor<? extends T>)visitor).visitDoubles(this);
+			if ( visitor instanceof CnwCodeVisitor ) return ((CnwCodeVisitor<? extends T>)visitor).visitDoubles(this);
 			else return visitor.visitChildren(this);
 		}
 	}

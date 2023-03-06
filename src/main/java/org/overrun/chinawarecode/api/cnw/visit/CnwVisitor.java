@@ -10,9 +10,8 @@ import org.overrun.chinawarecode.api.cnw.code.CnwCodeParser;
 import java.io.File;
 import java.util.*;
 
-import static org.overrun.chinawarecode.api.cnw.code.CnwCodeParser.temp;
-
 public class CnwVisitor extends CnwCodeBaseVisitor<String> {
+    public Object temp = null;
     public static final Map<String, Object> global = new HashMap<>();
 
     @Override

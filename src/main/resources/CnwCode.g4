@@ -1,12 +1,5 @@
 grammar CnwCode;
 
-@parser::header {
-import java.util.*;
-}
-@parser::members {
-    public static Object temp = null;
-}
-
 main:           (allCode)+
     ;
 allCode:        code
@@ -27,15 +20,17 @@ switchBlock:    '{' (switchOr+ | ) '}'
 switchOr:       (def ':' allCode)
         |       (def ':' braceTo)
         ;
-braceTo:        '{' (allCode | ) '}'
+braceTo:        '{' (allCode+ | ) '}'
        ;
-dec:            last=default (LA | RA) next=default;
-code:           dec END//基础赋值语句
+dec:            (POINT | ) last=default (LA | RA) (POINT | ) next=default;
+code:           (dec | var | val) END//基础赋值语句
     ;
 val:            'val' names
    ;
 var:            'var' names
    ;
+global:         'global' names
+      ;
 operation:      def ('+' | '-' | '*' | '/') def
          ;
 prentheses:     '(' code ')'
@@ -55,6 +50,7 @@ default:        def
        |        operation
        |        var
        |        val
+       |        global
        ;//对变量的拓展
 def:            strings
    |            fileStrings
@@ -102,6 +98,7 @@ DIVIDE:     '/';
 COMPARER: '<=' | '=>' | '<>' | '==' | '&&' | '||' | '<' | '>';
 MOVE: '<<' | '>>' | '<<<' | '>>>';
 LAMBDA: ':::';
+POINT:'.';
 
 //基础判断组和个体,用size判断
 names:          NAME
