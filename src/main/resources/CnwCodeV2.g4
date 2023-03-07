@@ -31,6 +31,7 @@ fstring: FSTRING;
 fstrings: (FSTRING ',')+FSTRING;
 boolean: BOOLEAN;
 booleans: (BOOLEAN ',')+BOOLEAN ;
+method: (NAME '.')+NAME brace0 ';';
 def: int        | ints
    | long       | longs
    | double     | doubles
@@ -44,7 +45,7 @@ booleanBlock: (def | booleanBrace0) (BOOLEAN_CHARACTER | ) (booleanRight+ | bool
 booleanRight:BOOLEAN_CHARACTER def;
 booleanBrace0: '(' booleanBlock ')';
 vvg: ('var' | 'val' | 'global') (names | name);//var val and global
-brace0: '(' (brace0 | code | def) ')';
+brace0: '(' (brace0 | code | def | ) ')';
 brace1: '[' def ']';
 brace2: '{' main '}';
 //代码区
@@ -65,7 +66,7 @@ codeFIWS: (def | vvg | brace0 | booleanBlock) codeRight;
 
 //主程序
 allCode: (code | vvg) ';';
-main: (allCode | fiw | switch)+ | ;
+main: (allCode | fiw | switch | method)+ | ;
 //fragment
 fragment
 EscapeSequence:     '\\'  [btnfr"'\\]

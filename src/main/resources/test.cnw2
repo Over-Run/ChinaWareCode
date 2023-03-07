@@ -13,6 +13,7 @@ for a <- b {
     c <- .it;
     c <- .it;
     c <- .it;
+    it.get();
 }
 switch a {
     1: {
