@@ -31,7 +31,7 @@ fstring: FSTRING;
 fstrings: (FSTRING ',')+FSTRING;
 boolean: BOOLEAN;
 booleans: (BOOLEAN ',')+BOOLEAN ;
-method: (NAME '.')+NAME brace0 ';';
+method: (NAME '.')+NAME brace0;
 def: int        | ints
    | long       | longs
    | double     | doubles
@@ -65,8 +65,8 @@ fiwsBlock: brace2;
 codeFIWS: (def | vvg | brace0 | booleanBlock) codeRight;
 
 //主程序
-allCode: (code | vvg) ';';
-main: (allCode | fiw | switch | method)+ | ;
+allCode: (code | vvg | method) ';';
+main: (allCode | fiw | switch)+ | ;
 //fragment
 fragment
 EscapeSequence:     '\\'  [btnfr"'\\]
