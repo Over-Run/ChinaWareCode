@@ -15,6 +15,14 @@ public class CnwVisitor extends CnwCodeV2BaseVisitor<String> {
     //基本实现
     @Override
     public String visitAllCode(CnwCodeV2Parser.AllCodeContext ctx) {
+        // code | vvg | method
+        if (ctx.code() != null) {
+
+        } else if (ctx.vvg() != null) {
+
+        } else {
+
+        }
         return super.visitAllCode(ctx);
     }
     //基本实现

@@ -1,3 +1,5 @@
+#priority 1;//prior | priority | underying
+
 a <- 1;
 //,<-左位补值, -> 右位补值 字节符不同的时候会自动匹配成string，数组溢出
 (a <- a <- 2) -> var b;//a<-a<-2的意思是a==b==21;
