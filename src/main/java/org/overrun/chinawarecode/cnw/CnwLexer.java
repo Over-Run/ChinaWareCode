@@ -10,9 +10,12 @@ public class CnwLexer {
     public static final int  LP = 4;
     public static final int  RP = 5;
     public static final int  NUM = 6;
-    public static final int  INT = 7;
-    public static final int  EQ = 8;
-    public static final int  ID = 9;
+    public static final int  EQ = 7;
+    public static final int  ID = 8;
+    public static final int VAR = 9;
+    public static final int VAL = 10;
+    public static final int LA = 11;
+    public static final int RA = 12;
 
     private int lookAhead = -1;  // 当前的标签
     public String yytext = "";  // 当前分析子字符串
@@ -22,23 +25,14 @@ public class CnwLexer {
     private String current = "";
 
     private boolean isId(char c) {
-        if (Character.isAlphabetic(c) ||
-                c == '_' || c == '$') {
-            return true;
-        }
-        return false;
+        return Character.isAlphabetic(c) ||
+                c == '_' || c == '$';
     }
     private boolean isNum(char c) {
-        if (Character.isDigit(c)) {
-            return true;
-        }
-        return false;
+        return Character.isDigit(c);
     }
     private boolean isKeyWord(String c) {
-        if (c.equals("int")) {
-            return true;
-        }
-        return false;
+        return c.equals("int");
     }
 
     private int lex() {
@@ -89,9 +83,11 @@ public class CnwLexer {
                             }
                             yytext = current.substring(0, yyleng);
                             current = current.substring(yyleng);
-                            if (isKeyWord(yytext) )
-                                return INT;
-                            return NUM;
+                            return switch (yytext) {
+                                case "var" -> VAR;
+                                case "val" -> VAL;
+                                default -> NUM;
+                            };
                         }
                         else if (isId(current.charAt(i)))
                         {
@@ -101,10 +97,11 @@ public class CnwLexer {
                             }
                             yytext = current.substring(0, yyleng);
                             current = current.substring(yyleng);
-                            if (isKeyWord(yytext) )
-                                return INT;
-                            else
-                                return ID;
+                            return switch (yytext) {
+                                case "var" -> VAR;
+                                case "val" -> VAL;
+                                default -> ID;
+                            };
 
                         }
 
@@ -148,8 +145,11 @@ public class CnwLexer {
             case LP -> "LP";
             case RP -> "RP";
             case EQ -> "EQ";
-            case INT -> "INT";
             case ID -> "ID";
+            case VAR -> "VAR";
+            case VAL -> "VAL";
+            case LA -> "<-";
+            case RA -> "->";
             default -> "";
         };
     }
