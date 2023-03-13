@@ -15,6 +15,7 @@ public enum Token {
     VAL(10),
     LA(11),
     RA(12),
+    END(13)
     ;
     private final int tokenNum;
     Token(int tokenNum) {

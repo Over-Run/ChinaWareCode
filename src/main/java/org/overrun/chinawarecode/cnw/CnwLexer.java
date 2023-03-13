@@ -6,9 +6,9 @@ import static org.overrun.chinawarecode.cnw.Token.*;
 
 public class CnwLexer {
     private Token lookAhead = NULL;  // 当前的标签
-    public String yytext = "";  // 当前分析子字符串
-    public int yyleng = 0;
-    public int yylineno = 0;
+    public String text = "";  // 当前分析子字符串
+    public int leng = 0;
+    public int lineno = 0;
     private String input_buffer = "";
     private String current = "";
 
@@ -26,7 +26,6 @@ public class CnwLexer {
     private Token lex() {
 
         while (true) {
-
             while (current.equals("")) {
                 Scanner s = new Scanner(System.in);
 
@@ -46,12 +45,12 @@ public class CnwLexer {
                 }
 
                 current = input_buffer;
-                ++yylineno;//当前的行号
+                ++lineno;//当前的行号
                 current = current.trim();
             }//while (current != "")
             for (int i = 0; i < current.length(); ) {
-                yyleng = 0;
-                yytext = current.substring(0, 1);
+                leng = 0;
+                text = current.substring(0, 1);
                 switch (current.charAt(i)) {
                     case ';': current = current.substring(1); return SEMI;
                     case '+': current = current.substring(1); return PLUS;
@@ -66,12 +65,12 @@ public class CnwLexer {
                         if(isNum(current.charAt(i))){
                             while (isNum(current.charAt(i))) {
                                 i++;
-                                yyleng++;
+                                leng++;
 
                             }
-                            yytext = current.substring(0, yyleng);
-                            current = current.substring(yyleng);
-                            return switch (yytext) {
+                            text = current.substring(0, leng);
+                            current = current.substring(leng);
+                            return switch (text) {
                                 case "var" -> VAR;
                                 case "val" -> VAL;
                                 default -> NUM;
@@ -81,11 +80,11 @@ public class CnwLexer {
                         {
                             while (isId(current.charAt(i))) {
                                 i++;
-                                yyleng++;
+                                leng++;
                             }
-                            yytext = current.substring(0, yyleng);
-                            current = current.substring(yyleng);
-                            return switch (yytext) {
+                            text = current.substring(0, leng);
+                            current = current.substring(leng);
+                            return switch (text) {
                                 case "var" -> VAR;
                                 case "val" -> VAL;
                                 default -> ID;
@@ -118,7 +117,7 @@ public class CnwLexer {
 
     public void runLexer() {
         while (!match(EOI)) {
-            System.out.println("Token: " + token() + " ,Symbol: " + yytext );
+            System.out.println("Token: " + token() + " ,Symbol: " + text);
             advance();
         }
     }
