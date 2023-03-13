@@ -2,22 +2,10 @@ package org.overrun.chinawarecode.cnw;
 
 import java.util.Scanner;
 
-public class CnwLexer {
-    public static final int  EOI = 0;
-    public static final int  SEMI = 1;
-    public static final int  PLUS = 2;
-    public static final int  TIMES = 3;
-    public static final int  LP = 4;
-    public static final int  RP = 5;
-    public static final int  NUM = 6;
-    public static final int  EQ = 7;
-    public static final int  ID = 8;
-    public static final int VAR = 9;
-    public static final int VAL = 10;
-    public static final int LA = 11;
-    public static final int RA = 12;
+import static org.overrun.chinawarecode.cnw.Token.*;
 
-    private int lookAhead = -1;  // 当前的标签
+public class CnwLexer {
+    private Token lookAhead = NULL;  // 当前的标签
     public String yytext = "";  // 当前分析子字符串
     public int yyleng = 0;
     public int yylineno = 0;
@@ -35,7 +23,7 @@ public class CnwLexer {
         return c.equals("int");
     }
 
-    private int lex() {
+    private Token lex() {
 
         while (true) {
 
@@ -116,8 +104,8 @@ public class CnwLexer {
         }//while (true)
     }//lex()
 
-    public boolean match(int token) {
-        if (lookAhead == -1) {
+    public boolean match(Token token) {
+        if (lookAhead.getTokenNum() == -1) {
             lookAhead = lex();
         }
         return token == lookAhead;
