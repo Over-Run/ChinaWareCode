@@ -31,4 +31,9 @@ public enum Token {
     public int num() {
         return num;
     }
+
+    @Override
+    public String toString() {
+        return String.valueOf(num);
+    }
 }
