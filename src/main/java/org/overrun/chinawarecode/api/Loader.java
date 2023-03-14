@@ -9,6 +9,7 @@ import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.concurrent.atomic.AtomicInteger;
 
 @SuppressWarnings({"ResultOfMethodCallIgnored", "DuplicatedCode"})
 public class Loader {
@@ -43,7 +44,28 @@ public class Loader {
         try {
             BufferedReader br = new BufferedReader(new FileReader(file));
             final StringBuilder sb = new StringBuilder();
+            List<String> list = new ArrayList<>();
+            AtomicInteger note = new AtomicInteger();
             br.lines().forEach(s -> {
+                String ss = s;
+                if (note.get() == 0) {
+                    if (ss.contains("//")) ss = ss.substring(0, ss.indexOf("//"));
+                    if (ss.contains("/*")) {
+                        if (ss.contains("*/")) {
+                            ss = ss.substring(0, ss.indexOf("/*")) + ss.substring(ss.indexOf("*/") + 2);
+                        } else {
+                            note.set(note.get() + 1);
+                            ss = ss.substring(0, ss.indexOf("/*"));
+                            list.add(ss);
+                        }
+                    }
+                } else if (ss.contains("*/")) {
+                    note.set(note.get() - 1);
+                    ss = ss.substring(ss.indexOf("*/") + 2);
+                }
+                if (note.get() == 0) list.add(ss);
+            });
+            list.forEach(s -> {
                 if (mode == 0) {
                     if (s.contains(";")) codes.add(s);
                     else if (s.contains("{")) {

@@ -4,11 +4,13 @@ var c, d;
 for a <- b {
     c <- .it;
 }
-switch c {
-    case 1 -> {
+switch a {
+    case 1 : {
         d <- a;
     }
-    default -> {
+    : {
         d <- a;
     }
 }
+//最后输入结果
+//a = 1, b=2,c = 1,2 d = 1;
