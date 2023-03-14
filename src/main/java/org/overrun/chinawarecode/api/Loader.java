@@ -45,25 +45,12 @@ public class Loader {
             BufferedReader br = new BufferedReader(new FileReader(file));
             final StringBuilder sb = new StringBuilder();
             List<String> list = new ArrayList<>();
-            AtomicInteger note = new AtomicInteger();
             br.lines().forEach(s -> {
                 String ss = s;
-                if (note.get() == 0) {
-                    if (ss.contains("//")) ss = ss.substring(0, ss.indexOf("//"));
-                    if (ss.contains("/*")) {
-                        if (ss.contains("*/")) {
-                            ss = ss.substring(0, ss.indexOf("/*")) + ss.substring(ss.indexOf("*/") + 2);
-                        } else {
-                            note.set(note.get() + 1);
-                            ss = ss.substring(0, ss.indexOf("/*"));
-                            list.add(ss);
-                        }
-                    }
-                } else if (ss.contains("*/")) {
-                    note.set(note.get() - 1);
-                    ss = ss.substring(ss.indexOf("*/") + 2);
+                if (ss.contains("!->")) {
+                    ss = ss.substring(0, ss.indexOf("!->"));
                 }
-                if (note.get() == 0) list.add(ss);
+                list.add(ss);
             });
             list.forEach(s -> {
                 if (mode == 0) {
