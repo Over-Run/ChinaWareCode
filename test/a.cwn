@@ -1,0 +1,14 @@
+var a <- 1;
+var b <- 2;
+var c, d;
+for a <- b {
+    c <- .it;
+}
+switch c {
+    case 1 -> {
+        d <- a;
+    }
+    default -> {
+        d <- a;
+    }
+}

@@ -10,8 +10,9 @@ import java.io.FileReader;
 import java.util.ArrayList;
 import java.util.List;
 
-@SuppressWarnings("ResultOfMethodCallIgnored")
+@SuppressWarnings({"ResultOfMethodCallIgnored", "DuplicatedCode"})
 public class Loader {
+    @Deprecated
     private static final String code = """
             var a <- 1;
             var b <- 2;
@@ -33,7 +34,7 @@ public class Loader {
     public static List<String> getCodes() {
         return new ArrayList<>(codes);
     }
-    public static int mode = 0;
+    private static int mode = 0;
 
     /**
      * @param dir 文件夹
@@ -85,33 +86,33 @@ public class Loader {
             System.out.println(e.getMessage());
         }
     }
-
-//    public static void load() {
-//        final StringBuilder sb = new StringBuilder();
-//        code.lines().forEach(s -> {
-//            if (mode == 0) {
-//                if (s.contains(";")) codes.add(s);
-//                else if (s.contains("{")) {
-//                    if (!s.contains("}")) mode++;
-//                    sb.append(s).append("\n");
-//                } else if (s.contains("}")) {
-//                    mode--;
-//                    sb.append(s).append("\n");
-//                }
-//            } else {
-//                sb.append(s).append("\n");
-//                if (s.contains("{")) {
-//                    if (!s.contains("}")) mode++;
-//                } else if (s.contains("}")) {
-//                    mode--;
-//                    if (mode == 0) {
-//                        codes.add(sb.toString());
-//                        sb.delete(0, sb.length() - 1);
-//                    }
-//                }
-//            }
-//        });
-//    }
+    @Deprecated(since = "弃用的玩意推荐使用带file参数的值",forRemoval = true)
+    public static void load() {
+        final StringBuilder sb = new StringBuilder();
+        code.lines().forEach(s -> {
+            if (mode == 0) {
+                if (s.contains(";")) codes.add(s);
+                else if (s.contains("{")) {
+                    if (!s.contains("}")) mode++;
+                    sb.append(s).append("\n");
+                } else if (s.contains("}")) {
+                    mode--;
+                    sb.append(s).append("\n");
+                }
+            } else {
+                sb.append(s).append("\n");
+                if (s.contains("{")) {
+                    if (!s.contains("}")) mode++;
+                } else if (s.contains("}")) {
+                    mode--;
+                    if (mode == 0) {
+                        codes.add(sb.toString());
+                        sb.delete(0, sb.length() - 1);
+                    }
+                }
+            }
+        });
+    }
 
 
 }
