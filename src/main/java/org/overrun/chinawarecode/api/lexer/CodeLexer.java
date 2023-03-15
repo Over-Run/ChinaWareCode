@@ -1,9 +1,10 @@
 package org.overrun.chinawarecode.api.lexer;
 
-import java.util.Arrays;
+public class CodeLexer extends Lexer{
+    public CodeLexer(String text) {
+        for (int i = 0; i < text.length(); i++) {
+            var t = text.charAt(i);
 
-public class CodeLexer extends Lexer {
-    public CodeLexer(IToken... token) {
-        this.iTokens = Arrays.stream(token).toList();
+        }
     }
 }

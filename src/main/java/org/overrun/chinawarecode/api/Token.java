@@ -21,7 +21,8 @@ public enum Token {
     LS(16),     // [
     RS(17),     // ]
     LB(18),     // {
-    RB(19)      // }
+    RB(19),     // }
+    INT(20)
     ;
     private final int num;
     Token(int num) {
